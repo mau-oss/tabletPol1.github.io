@@ -29,7 +29,7 @@
     <h2><i class="fas fa-shield-alt"></i> CENTRAL LSPD</h2>
     <a href="#" onclick="showSection('inicio')"><i class="fas fa-home"></i> Inicio</a>
     <a href="#" onclick="showSection('CuerpoP')"><i class="fas fa-file-alt"></i> Jefatura</a>
-    <a href="#" onclick="showSection('RTD')"><i class="fas fa-user-shield"></i> RTD</a>
+    <a href="#" onclick="showSection('RTD')"><i class="fas fa-user-shield"></i> Divisiones</a>
     <a href="#" onclick="showSection('SRU')"><i class="fas fa-car-crash"></i> SRU</a>
     <a href="#" onclick="showSection('SWAT')"><i class="fas fa-gun"></i> SWAT</a>
     <a href="#" onclick="showSection('DB')"><i class="fas fa-folder-open"></i> DB</a>
@@ -91,7 +91,7 @@
       <div class="back">
         <input type="text" placeholder="Tu nombre" />
         <textarea placeholder="Motivo"></textarea>
-        <button onclick="enviarFormulario(event)">Enviar</button>
+        <button onclick="enviarFormularioDenuncia(event)">Enviar</button>
       </div>
     </div>
   </div>
@@ -194,32 +194,109 @@
       </section>
 
       <!-- RTD -->
-      <section id="RTD" class="section">
+      <section id="RTD" class="section Divis">
         <h1>👮 Recruiting Team Division</h1>
         <p>Oficiales activos, rangos, asignaciones y turnos.</p>
+		<!-- Contenedor de divisiones -->
+<div class="divisiones-policiales">
+  <div class="division">
+    <h3>RTD – Instrucción y Reclutamiento</h3>
+    <p>Instruyen y evalúan a los cadetes en su etapa inicial en la policía.</p>
+    <span>👤 Coordinado por: Sassa Velar</span>
+  </div>
+
+  <div class="division">
+    <h3>ASD – División Aérea</h3>
+    <p>Patrullaje y apoyo aéreo en operaciones policiales.</p>
+    <span>👤 Coordinado por: Jane Phoenix</span>
+  </div>
+
+  <div class="division">
+    <h3>K9 – División Canina</h3>
+    <p>Instrucción de perros para detención y detección de narcóticos.</p>
+    <span>👤 Coordinado por: Noelia Ariza</span>
+  </div>
+
+  <div class="division">
+    <h3>SAHP – HighWay Patrol</h3>
+    <p>Controles de tráfico y gestión de vehículos de alta velocidad.</p>
+    <span>👤 Coordinado por: Willow Reiss</span>
+  </div>
+
+  <div class="division">
+    <h3>SRU – Street Racing Unit</h3>
+    <p>Investigación y seguimiento de carreras ilegales.</p>
+    <span>👤 Coordinado por: 	Yan Tackelberry</span>
+  </div>
+
+  <div class="division">
+    <h3>RRPP – Relaciones Públicas</h3>
+    <p>Organizan eventos, convenios y comunicación con la población.</p>
+	<span>👤 Coordinado por: Kayser Siegler</span>
+  </div>
+
+  <div class="division">
+    <h3>Reinserción Social</h3>
+    <p>Ayuda a personas con delitos menores a reinsertarse legalmente.</p>
+	<span>👤 Coordinado por: Thiago Rodriguez</span>
+  </div>
+
+  <div class="division">
+    <h3>IA – Asuntos Internos</h3>
+    <p>Investiga y sanciona malas praxis dentro del cuerpo policial.</p>
+    <span>👤 Coordinado por: Revy Smith</span>
+  </div>
+
+  <div class="division">
+    <h3>SWAT – Intervención Especial</h3>
+    <p>Negociación, rescate de rehenes y actuación en robos mayores.</p>
+	<span>👤 Coordinado por: Cassandra Bardi</span>
+  </div>
+
+  <div class="division">
+    <h3>DB – Detective Bureau</h3>
+    <p>Investigación de delitos mayores y organizaciones criminales.</p>
+    <span>👤 Coordinado por: Brooklyn Díaz</span>
+  </div>
+  
+  <div class="division">
+    <h3>DM – Delitos Menores</h3>
+    <p>Delitos Menores.</p>
+    <span>👤 Coordinado por: Agatha West</span>
+  </div>
+</div>
       </section>
 
       <!-- SRU -->
       <section id="SRU" class="section">
         <h1>🚓 Street Racing Unit</h1>
-        <p>Estado de patrullas, unidades especiales y mantenimiento.</p>
+        <H2>EN MANTENCIÓN.</H2>
+		<div class="tarjeta-rtd">
+        <img src="fotos/imagen1.jpg" alt="Agente RTD">
+        <h3>Oficial Ramírez</h3>
+        <p>ID: 0452</p>
+        <span>Unidad de Tránsito</span>
+        </div>
       </section>
 
       <!-- SWAT -->
       <section id="SWAT" class="section">
         <h1>🔫 Special Weapons and Tactics</h1>
+		 <H2>EN MANTENCIÓN.</H2>
         <p>Inventario de armas, municiones, permisos y control de acceso.</p>
       </section>
 
       <!-- DB -->
       <section id="DB" class="section">
         <h1>📁 Detective Bureau</h1>
+		 <H2>EN MANTENCIÓN.</H2>
         <p>Investigaciones en curso, evidencias recolectadas y responsables.</p>
       </section>
 
       <!-- Contacto -->
       <section id="contacto" class="section">
         <h1>📞 Contacto</h1>
+		 <H2>EN MANTENCIÓN.</H2>
         <p>Emergencias, soporte técnico y líneas internas.</p>
       </section>
 

@@ -117,7 +117,7 @@ function enviarFormulario(event) {
     alert("💧 Hay más formas de llorar... incluso en patrullaje.");
   }
 
-
+//-- formulario pedir id --
 function enviarFormularioPID(event) {
   const tarjeta = event.target.closest('.tarjsolicitud');
   const nombreInput = tarjeta.querySelector('input');
@@ -175,6 +175,73 @@ function enviarFormularioPID(event) {
 
   // Envío exitoso
   alert(`Quieres Pedir ID? , pues ${nombre} puedes agarrar el pedir id y guardarlo donde mas te guste`);
+
+  // Limpiar campos
+  nombreInput.value = "";
+  motivoTextarea.value = "";
+
+  // Girar tarjeta de vuelta
+  contenedor.classList.remove('flipped');
+}
+
+//-- formulario denuncia --
+function enviarFormularioDenuncia(event) {
+  const tarjeta = event.target.closest('.tarjsolicitud');
+  const nombreInput = tarjeta.querySelector('input');
+  const motivoTextarea = tarjeta.querySelector('textarea');
+  const contenedor = event.target.closest('.tramite-container');
+
+  const nombre = nombreInput.value.trim();
+  const motivo = motivoTextarea.value.trim();
+
+  // Eliminar botones de error anteriores si existen
+  const errorPrevio = tarjeta.querySelector('.acciones-error');
+  if (errorPrevio) {
+    errorPrevio.remove();
+  }
+
+  // Validación
+  if (!nombre || !motivo) {
+  // 🚨 Alerta directa
+  alert("Debes completar todos los campos antes de enviar.");
+  contenedor.classList.remove('flipped');
+
+
+  
+  // 🛠 Crear contenedor de acciones si no existe ya
+  let acciones = tarjeta.querySelector('.acciones-error');
+  if (!acciones) {
+    acciones = document.createElement('div');
+    acciones.classList.add('acciones-error');
+
+    const reintentarBtn = document.createElement('button');
+    reintentarBtn.textContent = 'Reintentar';
+    reintentarBtn.onclick = () => {
+      acciones.remove();
+      nombreInput.classList.remove('error');
+      motivoTextarea.classList.remove('error');
+    };
+
+    const cancelarBtn = document.createElement('button');
+    cancelarBtn.textContent = 'Cancelar';
+    cancelarBtn.onclick = () => {
+      acciones.remove();
+      contenedor.classList.remove('flipped');
+      nombreInput.classList.remove('error');
+      motivoTextarea.classList.remove('error');
+    };
+
+    acciones.appendChild(reintentarBtn);
+    acciones.appendChild(cancelarBtn);
+    tarjeta.appendChild(acciones);
+  }
+
+  return;
+}
+
+
+  // Envío exitoso
+  alert(`Gracias ${nombre} por enviar tu denuncia, la denuncia será respondida en un lapso de 1 a 5 años. Eso si es que tienes suerte`);
 
   // Limpiar campos
   nombreInput.value = "";
