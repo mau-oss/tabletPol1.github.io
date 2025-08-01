@@ -1,7 +1,7 @@
 const usuarios = [
   { username: 'admin', password: '12345', nombre: 'Administrador' },
-  { username: 'agenteX', password: 'claveX2025', nombre: 'Agente X' },
-  { username: 'jefa_blade', password: 'bladeSecure', nombre: 'Jefa Blade' },
+  { username: 'revy', password: 'revy', nombre: 'La Putisima Jefa' },
+  { username: 'yoli', password: 'yoli', nombre: 'Yoli 007' },
   // Agrega más usuarios aquí 👇
 ];
 
