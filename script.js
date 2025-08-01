@@ -1,10 +1,11 @@
 const usuarios = [
   { username: 'admin', password: '12345', nombre: 'Administrador' },
   { username: 'yoli', password: '1234', nombre: 'Yoli 007 - NPC01' },
-  { username: 'blanca', password: '1234', nombre: 'Blanca padawan - NPC04' },
+  { username: 'blanca', password: '1234', nombre: 'Blanca Padawan - NPC04' },
   { username: 'gonza', password: '1234', nombre: 'Gonzalo Antonio - NPC03' },
   { username: 'tarqui', password: '1234', nombre: 'Tarquino727 - VuelveMod' },
   { username: 'mills', password: '1234', nombre: 'La Putisima Jefa' },
+  { username: 'milagros', password: '1234', nombre: 'La Putisima Jefa' },
   // Agrega más usuarios aquí 👇
 ];
 
@@ -251,4 +252,5 @@ function enviarFormularioDenuncia(event) {
   contenedor.classList.remove('flipped');
 
 }
+
 
