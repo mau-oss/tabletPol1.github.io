@@ -1,8 +1,8 @@
 const usuarios = [
   { username: 'admin', password: '12345', nombre: 'Administrador' },
   { username: 'yoli', password: '1234', nombre: 'Yoli 007 - NPC01' },
-  { username: 'blanca', password: '1234', nombre: 'Blanca padawan - NPC04' },
-  { username: 'gonza', password: '1234', nombre: 'Gonzalo Antonio - NPC03' },
+  { username: 'blanca', password: '1234', nombre: 'Blanca Padawan - NPC05' },
+  { username: 'gonza', password: '1234', nombre: 'Gonzalo Antonio - NPC04' },
   { username: 'tarqui', password: '1234', nombre: 'Tarquino727 - VuelveMod' },
   { username: 'revy', password: 'revy', nombre: 'La Putisima Jefa' },
   // Agrega más usuarios aquí 👇
@@ -112,6 +112,7 @@ function enviarFormulario(event) {
   // Girar tarjeta de vuelta
   contenedor.classList.remove('flipped');
 }
+
 
 
 
