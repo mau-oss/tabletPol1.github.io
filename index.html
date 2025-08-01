@@ -53,9 +53,9 @@
             <h3>¿Cómo hacer una lloradita?</h3>
             <p>De forma segura y anónima.</p>
             <button onclick="irADenuncia()">Vía web: Llora seguro</button>
-            <div class="alternativas">
+            <div class="alternativas" onclick="mostrarMensaje()" style="cursor: pointer;">
               <span>Otras formas de llorar</span>
-              <i class="fas fa-arrow-right"></i>
+  <i class="fas fa-arrow-right"></i>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@
       <div class="back">
         <input type="text" placeholder="Tu nombre" />
         <textarea placeholder="Motivo"></textarea>
-        <button onclick="enviarFormulario(event)">Enviar</button>
+        <button onclick="enviarFormularioPID(event)">Enviar</button>
       </div>
     </div>
   </div>
