@@ -4,7 +4,7 @@ const usuarios = [
   { username: 'blanca', password: '1234', nombre: 'Blanca padawan - NPC04' },
   { username: 'gonza', password: '1234', nombre: 'Gonzalo Antonio - NPC03' },
   { username: 'tarqui', password: '1234', nombre: 'Tarquino727 - VuelveMod' },
-  { username: 'MILLS', password: '1234', nombre: 'La Putisima Jefa' },
+  { username: 'mills', password: '1234', nombre: 'La Putisima Jefa' },
   // Agrega más usuarios aquí 👇
 ];
 
@@ -251,3 +251,4 @@ function enviarFormularioDenuncia(event) {
   contenedor.classList.remove('flipped');
 
 }
+
