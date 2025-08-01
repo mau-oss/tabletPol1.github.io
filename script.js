@@ -1,0 +1,113 @@
+const usuarios = [
+  { username: 'admin', password: '12345', nombre: 'Administrador' },
+  { username: 'agenteX', password: 'claveX2025', nombre: 'Agente X' },
+  { username: 'jefa_blade', password: 'bladeSecure', nombre: 'Jefa Blade' },
+  // Agrega más usuarios aquí 👇
+];
+
+function login() {
+  const userInput = document.getElementById('user').value;
+  const passInput = document.getElementById('pass').value;
+
+  const usuario = usuarios.find(u => u.username === userInput && u.password === passInput);
+
+  if (usuario) {
+    document.getElementById('loginPanel').style.display = 'none';
+    document.getElementById('sidebar').style.display = 'block';
+    document.getElementById('mainContent').style.display = 'block';
+
+    // Mostrar nombre del usuario arriba a la izquierda
+    document.getElementById('nombre-usuario').textContent = `👤 ${usuario.nombre}`;
+  } else {
+    alert('Credenciales incorrectas 🚨');
+  }
+}
+
+ function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+function irADenuncia() {
+  alert("Lamentablemente los circuitos se quemaron con tanto lloro, quizas a la proxima se puede...");
+  // Puedes usar window.location.href si lo necesitas
+}
+
+ 
+
+
+//pruebas 
+
+function girarTarjeta(event) {
+  const contenedor = event.target.closest('.tramite-container');
+  contenedor.classList.add('flipped');
+}
+
+function enviarFormulario(event) {
+  const tarjeta = event.target.closest('.tarjsolicitud');
+  const nombreInput = tarjeta.querySelector('input');
+  const motivoTextarea = tarjeta.querySelector('textarea');
+  const contenedor = event.target.closest('.tramite-container');
+
+  const nombre = nombreInput.value.trim();
+  const motivo = motivoTextarea.value.trim();
+
+  // Eliminar botones de error anteriores si existen
+  const errorPrevio = tarjeta.querySelector('.acciones-error');
+  if (errorPrevio) {
+    errorPrevio.remove();
+  }
+
+  // Validación
+  if (!nombre || !motivo) {
+  // 🚨 Alerta directa
+  alert("Debes completar todos los campos antes de enviar.");
+  contenedor.classList.remove('flipped');
+
+
+  
+  // 🛠 Crear contenedor de acciones si no existe ya
+  let acciones = tarjeta.querySelector('.acciones-error');
+  if (!acciones) {
+    acciones = document.createElement('div');
+    acciones.classList.add('acciones-error');
+
+    const reintentarBtn = document.createElement('button');
+    reintentarBtn.textContent = 'Reintentar';
+    reintentarBtn.onclick = () => {
+      acciones.remove();
+      nombreInput.classList.remove('error');
+      motivoTextarea.classList.remove('error');
+    };
+
+    const cancelarBtn = document.createElement('button');
+    cancelarBtn.textContent = 'Cancelar';
+    cancelarBtn.onclick = () => {
+      acciones.remove();
+      contenedor.classList.remove('flipped');
+      nombreInput.classList.remove('error');
+      motivoTextarea.classList.remove('error');
+    };
+
+    acciones.appendChild(reintentarBtn);
+    acciones.appendChild(cancelarBtn);
+    tarjeta.appendChild(acciones);
+  }
+
+  return;
+}
+
+
+  // Envío exitoso
+  alert(`Formulario enviado por ${nombre}, motivo: ${motivo}`);
+
+  // Limpiar campos
+  nombreInput.value = "";
+  motivoTextarea.value = "";
+
+  // Girar tarjeta de vuelta
+  contenedor.classList.remove('flipped');
+}
+
+

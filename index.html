@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>TEST</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <div id="barra-superior">
+    <span id="nombre-usuario" class="nombre-usuario">👤 Usuario</span>
+  </div>
+
+  <!-- Panel de Login -->
+  <div class="login-panel" id="loginPanel">
+    <div class="login-box">
+      <h2>🔐 Acceso Central LSPD</h2>
+      <input type="text" placeholder="Usuario" id="user" />
+      <input type="password" placeholder="Contraseña" id="pass" />
+      <button onclick="login()">Ingresar</button>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h2><i class="fas fa-shield-alt"></i> CENTRAL LSPD</h2>
+    <a href="#" onclick="showSection('inicio')"><i class="fas fa-home"></i> Inicio</a>
+    <a href="#" onclick="showSection('CuerpoP')"><i class="fas fa-file-alt"></i> Jefatura</a>
+    <a href="#" onclick="showSection('RTD')"><i class="fas fa-user-shield"></i> RTD</a>
+    <a href="#" onclick="showSection('SRU')"><i class="fas fa-car-crash"></i> SRU</a>
+    <a href="#" onclick="showSection('SWAT')"><i class="fas fa-gun"></i> SWAT</a>
+    <a href="#" onclick="showSection('DB')"><i class="fas fa-folder-open"></i> DB</a>
+    <a href="#" onclick="showSection('contacto')"><i class="fas fa-phone-alt"></i> Contacto</a>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="main" id="mainContent">
+
+    <!-- Inicio -->
+    <section id="inicio" class="section active">
+      <h1>Bienvenido a la Central Policial</h1>
+      <p>Panel de control para gestión de recursos, personal y operaciones.</p>
+
+      <div class="panel-dual">
+
+        <!-- Panel de denuncia -->
+        <div class="panel-denuncia">
+          <h2>Entrega información:</h2>
+          <div class="card-denuncia">
+            <h3>¿Cómo hacer una lloradita?</h3>
+            <p>De forma segura y anónima.</p>
+            <button onclick="irADenuncia()">Vía web: Llora seguro</button>
+            <div class="alternativas">
+              <span>Otras formas de llorar</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel de trámites -->
+        <div class="panel-tramites">
+          <h2>Trámites</h2>
+
+          <!-- Tarjetas -->
+
+
+<div class="tarjetas-wrapper">
+  <div class="tramite-container">
+    <div class="tarjsolicitud">
+      <div class="front">
+        <h3>Solicitud Visado</h3>
+        <button onclick="girarTarjeta(event)">Realizar</button>
+      </div>
+      <div class="back">
+        <input type="text" placeholder="Tu nombre" />
+        <textarea placeholder="Motivo"></textarea>
+        <button onclick="enviarFormulario(event)">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tramite-container">
+    <div class="tarjsolicitud">
+      <div class="front">
+        <h3>Denuncia</h3>
+        <button onclick="girarTarjeta(event)">Realizar</button>
+      </div>
+      <div class="back">
+        <input type="text" placeholder="Tu nombre" />
+        <textarea placeholder="Motivo"></textarea>
+        <button onclick="enviarFormulario(event)">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tramite-container">
+    <div class="tarjsolicitud">
+      <div class="front">
+        <h3>Pedir ID</h3>
+        <button onclick="girarTarjeta(event)">Realizar</button>
+      </div>
+      <div class="back">
+        <input type="text" placeholder="Tu nombre" />
+        <textarea placeholder="Motivo"></textarea>
+        <button onclick="enviarFormulario(event)">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+    
+</div>
+
+    </section>
+
+    <!-- Jefatura -->
+    <section id="CuerpoP" class="section fondo-jefatura">
+      <h1>📄 Jefatura y Plana Mayor</h1>
+      <p>Organigrama estructural de policía.</p>
+
+      <div class="organigrama">
+        <!-- Nivel 1 -->
+        <div class="nivel nivel-1">
+          <div class="tarjeta">
+            <div class="cara frente">
+              <h3>Jefe/a de Policía</h3>
+              <p><strong>Revy Smith (452)</strong></p>
+            </div>
+            <div class="cara reverso">
+              <img src="fotos/Revy.jpg" alt="Foto de Revy Smith" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Nivel 2 -->
+        <div class="nivel nivel-2">
+          <div class="tarjeta">
+            <div class="cara frente">
+              <h4>Jefe/a Adjunto/a</h4>
+              <p><strong>Sassa Velar (454)</strong></p>
+            </div>
+            <div class="cara reverso">
+              <img src="fotos/sassa-velar.jpg" alt="Foto de Sassa Velar" />
+            </div>
+          </div>
+          <div class="tarjeta">
+            <div class="cara frente">
+              <h4>Jefe Supervisor</h4>
+              <p><strong>Miguel Martinez (455)</strong></p>
+            </div>
+            <div class="cara reverso">
+              <img src="fotos/miguel-martinez.jpg" alt="Foto de Miguel Martinez" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Nivel 3 -->
+        <div class="nivel nivel-3">
+          <div class="tarjeta">
+            <div class="cara frente">
+              <h4>Comandante</h4>
+              <p><strong>David Gordon (451)</strong></p>
+            </div>
+            <div class="cara reverso">
+              <img src="fotos/david-gordon.jpg" alt="Foto de David Gordon" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Nivel 4 -->
+        <div class="nivel nivel-4">
+          <div class="tarjeta">
+            <div class="cara frente">
+              <h4>Capitán</h4>
+              <p><strong>Jane Phoenix (458)</strong></p>
+            </div>
+            <div class="cara reverso">
+              <img src="fotos/jane.jpg" alt="Foto de Jane Phoenix" />
+            </div>
+          </div>
+          <div class="tarjeta">
+            <div class="cara frente">
+             <h4>Capitán</h4>
+                <p><strong>Noelia Ariza (459)</strong></p>
+              </div>
+              <div class="cara reverso">
+                <img src="fotos/noelia.jpg" alt="Foto de Noelia Ariza" />
+              </div>
+            </div>
+          </div>
+        </div> <!-- Fin .organigrama -->
+      </section>
+
+      <!-- RTD -->
+      <section id="RTD" class="section">
+        <h1>👮 Recruiting Team Division</h1>
+        <p>Oficiales activos, rangos, asignaciones y turnos.</p>
+      </section>
+
+      <!-- SRU -->
+      <section id="SRU" class="section">
+        <h1>🚓 Street Racing Unit</h1>
+        <p>Estado de patrullas, unidades especiales y mantenimiento.</p>
+      </section>
+
+      <!-- SWAT -->
+      <section id="SWAT" class="section">
+        <h1>🔫 Special Weapons and Tactics</h1>
+        <p>Inventario de armas, municiones, permisos y control de acceso.</p>
+      </section>
+
+      <!-- DB -->
+      <section id="DB" class="section">
+        <h1>📁 Detective Bureau</h1>
+        <p>Investigaciones en curso, evidencias recolectadas y responsables.</p>
+      </section>
+
+      <!-- Contacto -->
+      <section id="contacto" class="section">
+        <h1>📞 Contacto</h1>
+        <p>Emergencias, soporte técnico y líneas internas.</p>
+      </section>
+
+    </div> <!-- Fin .main -->
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+  </body>
+</html>
