@@ -49,7 +49,8 @@ function irADenuncia() {
 function girarTarjeta(event) {
   const contenedor = event.target.closest('.tramite-container');
   contenedor.classList.add('flipped');
-   const audio = new Audio('audios/wiwia.mp3'); // Reemplaza con la ruta correcta
+   const audio = new Audio('audios/wiwia.mp3');
+  audio.volume = 0.1;// Reemplaza con la ruta correcta
   audio.play();
 
 }
@@ -183,7 +184,8 @@ function enviarFormularioPID(event) {
 
 
   // Envío exitoso
-const audio = new Audio('audios/titanic.mp3'); // Reemplaza con la ruta correcta
+const audio = new Audio('audios/titanic.mp3');
+  audio.volume = 0.1;// Reemplaza con la ruta correcta
   audio.play();
   alert(`Quieres Pedir ID? , pues ${nombre} puedes agarrar el pedir id y guardarlo donde mas te guste`);
 
@@ -264,7 +266,8 @@ function enviarFormularioDenuncia(event) {
 }
 
 function reproducirAudio() {
-  const audio = new Audio('audios/jefa.mp3'); // Reemplaza con la ruta correcta
+  const audio = new Audio('audios/jefa.mp3');
+  audio.volume = 0.1;// Reemplaza con la ruta correcta
   audio.play();// Asegúrate de que la ruta sea correcta
 }
 
@@ -272,4 +275,5 @@ document.querySelectorAll('.tarjetaswat').forEach(card => {
     card.addEventListener('click', () => {
       card.classList.toggle('active');
     });
+
   });
