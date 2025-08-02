@@ -49,8 +49,8 @@ function irADenuncia() {
 function girarTarjeta(event) {
   const contenedor = event.target.closest('.tramite-container');
   contenedor.classList.add('flipped');
-   const audio = new Audio('audios/wiwia.mp3'); // Reemplaza con la ruta correcta
-  audio.play();
+  // const audio = new Audio('audios/wiwia.mp3'); // Reemplaza con la ruta correcta
+  //audio.play();
 
 }
 
@@ -270,4 +270,5 @@ function reproducirAudio() {
 
 
 //-- maps swat --
+
 
