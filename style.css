@@ -627,3 +627,24 @@ button:hover {
   50%  { background-color: #1e293b; }
   100% { background-color: #0f172a; }
 }
+
+// MAP SWAT
+
+.zona {
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.zona:hover {
+  transform: scale(1.03);
+}
+.zona-magenta {
+  background-color: #1f2937;
+  border-left: 5px solid #ff00ff;
+  color: #e0e0e0;
+  box-shadow: 0 0 10px rgba(255,0,255,0.3);
+}
+.zona-magenta h3,
+.zona-magenta span {
+  color: #ff00ff;
+}

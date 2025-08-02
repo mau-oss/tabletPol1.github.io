@@ -33,6 +33,7 @@ function login() {
       const sections = document.querySelectorAll('.section');
       sections.forEach(section => section.classList.remove('active'));
       document.getElementById(id).classList.add('active');
+
     }
 
 function irADenuncia() {
@@ -48,6 +49,9 @@ function irADenuncia() {
 function girarTarjeta(event) {
   const contenedor = event.target.closest('.tramite-container');
   contenedor.classList.add('flipped');
+   const audio = new Audio('audios/wiwia.mp3'); // Reemplaza con la ruta correcta
+  audio.play();
+
 }
 
 function enviarFormulario(event) {
@@ -106,7 +110,9 @@ function enviarFormulario(event) {
 
 
   // Envío exitoso
+
   alert(`Formulario enviado por ${nombre}, motivo: ${motivo}`);
+
 
   // Limpiar campos
   nombreInput.value = "";
@@ -177,6 +183,8 @@ function enviarFormularioPID(event) {
 
 
   // Envío exitoso
+const audio = new Audio('audios/titanic.mp3'); // Reemplaza con la ruta correcta
+  audio.play();
   alert(`Quieres Pedir ID? , pues ${nombre} puedes agarrar el pedir id y guardarlo donde mas te guste`);
 
   // Limpiar campos
@@ -255,7 +263,11 @@ function enviarFormularioDenuncia(event) {
 
 }
 
+function reproducirAudio() {
+  const audio = new Audio('audios/jefa.mp3'); // Reemplaza con la ruta correcta
+  audio.play();// Asegúrate de que la ruta sea correcta
+}
 
 
-
+//-- maps swat --
 
