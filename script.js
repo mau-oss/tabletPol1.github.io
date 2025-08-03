@@ -367,4 +367,31 @@ function procesarDenuncia() {
   }, 4000);
 }
 
+ //----estadistica ----
+
+
+	document.addEventListener('DOMContentLoaded', function () {
+		const botonFunas = document.getElementById('btnConsultarFunas');
+		const gif = document.getElementById('funasGifConteo');
+		const resultado = document.getElementById('funasResultado');
+		const cantidad = document.getElementById('funasCantidad');
+
+		botonFunas.addEventListener('click', function () {
+			gif.style.display = 'block';
+			resultado.style.display = 'none';
+			let totalFunas = 0;
+			const finalFunas = 4; // Ajusta según tu fuente real
+			const intervalo = setInterval(() => {
+				totalFunas++;
+				cantidad.textContent = totalFunas;
+				if (totalFunas >= finalFunas) {
+					clearInterval(intervalo);
+					gif.style.display = 'none';
+					resultado.style.display = 'block';
+				}
+			}, 1000);
+		});
+	});
+
+
 

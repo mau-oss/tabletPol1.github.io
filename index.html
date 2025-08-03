@@ -31,8 +31,8 @@
 		<a href="#" onclick="showSection('CuerpoP')"><i class="fas fa-file-alt"></i> Jefatura</a>
 		<a href="#" onclick="showSection('RTD')"><i class="fas fa-user-shield"></i> Divisiones</a>
 		<a href="#" onclick="showSection('SWAT')"><i class="fas fa-gun"></i> SWAT</a>
-		<!-- <a href="#" onclick="showSection('DB')"><i class="fas fa-folder-open"></i> DB</a>  -->
-		<!-- <a href="#" onclick="showSection('contacto')"><i class="fas fa-phone-alt"></i> Contacto</a>  -->
+		<!-- <a href="#" onclick="showSection('funometro')"><i class="fas fa-folder-open"></i> Estadisticas</a>-->
+		 <a href="#" onclick="showSection('contacto')"><i class="fas fa-phone-alt"></i> Estadisticas</a>
 		<a href="#" onclick="showSection('REPORTES')"><i class="fas fa-clipboard-list"></i> Reportes</a>
 	</div>
 
@@ -524,14 +524,32 @@
 
 
 <!-- MENTENCIÖN -->
-		<section id="DB" class="section">
-			<h1>📁 Detective Bureau</h1>
-			<h2>EN MANTENCIÓN.</h2>
-			<p>Investigaciones en curso, evidencias recolectadas y responsables.</p>
-		</section>
+<section id="contacto" class="section">
+	<h1>📞 Consulta de Funadas</h1>
+	<p>Escaneo de registros conflictivos detectados esta semana.</p>
 
+	<!-- Botón de activación -->
+	<div class="funas-trigger-box">
+		<button id="btnConsultarFunas">🧮 Consultar Funas Semanales</button>
+	</div>
+
+	<!-- GIF de animación numérica -->
+	<div id="funasGifConteo" style="display: none; margin-top: 20px; text-align: center;">
+		<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzNhb2M4eWk2a3h3YmF4eDFxazJuNGdjMDR0Y3NneDBzNHJxOHRrNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/17mNCcKU1mJlrbXodo/giphy.gif" alt="Conteo digital"
+			style="width: 300px; border-radius: 8px; box-shadow: 0 0 15px #3949ab;" />
+	</div>
+
+<!-- Modal: Resultado de funas -->
+	<div id="funasResultado" style="display: none; position: fixed; top: 42%; left: 50%; transform: translate(-50%, -50%);
+		background-color: #7b0000; color: #fff; padding: 20px; border: 2px solid #aa0000;
+		border-radius: 10px; box-shadow: 0 0 15px #ff1a1a; z-index: 999;">
+
+		<h2>💀 Esta semana se han registrado <strong id="funasCantidad">0</strong> funas a Mills 💀</h2>
+	</div>
+
+</section>
 		<!-- Contacto -->
-		<section id="contacto" class="section">
+		<section id="acontacto" class="section">
 			<h1>📞 Contacto</h1>
 			<h2>EN MANTENCIÓN.</h2>
 			<p>Emergencias, soporte técnico y líneas internas.</p>
@@ -545,4 +563,3 @@
 	<script src="script.js"></script>
 </body>
 </html>
-
