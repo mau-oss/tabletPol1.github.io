@@ -372,9 +372,16 @@ function procesarDenuncia() {
 
 	document.addEventListener('DOMContentLoaded', function () {
 		const botonFunas = document.getElementById('btnConsultarFunas');
+                const botonRanking = document.getElementById('btnRankingFunadas');
 		const gif = document.getElementById('funasGifConteo');
 		const resultado = document.getElementById('funasResultado');
 		const cantidad = document.getElementById('funasCantidad');
+		const resultadoRK = document.getElementById('funasResultadoRK');
+		const btnCerrarRK = document.getElementById('btnCerrarFunasRK');
+		const rankingBox = document.getElementById('funasResultadoRK');
+		const btnCerrar = document.getElementById('btnCerrarFunas');
+		const rankingBoxf = document.getElementById('funasResultado');
+
 
 		botonFunas.addEventListener('click', function () {
 			gif.style.display = 'block';
@@ -391,6 +398,30 @@ function procesarDenuncia() {
 				}
 			}, 1000);
 		});
+		botonRanking.addEventListener('click', function () {
+			alert("🔍 Cargando ranking de personas más dramáticas... (conectamos a los registros de la comunidad)");
+			gif.style.display = 'block';
+			resultado.style.display = 'none';
+			let totalFunas = 0;
+			const finalFunas = 4; // Ajusta según tu fuente real
+			const intervalo = setInterval(() => {
+				totalFunas++;
+				cantidad.textContent = totalFunas;
+				if (totalFunas >= finalFunas) {
+					clearInterval(intervalo);
+					gif.style.display = 'none';
+					resultadoRK.style.display = 'block';
+				}
+			}, 1000);
+		});
+		btnCerrar.addEventListener('click', function () {
+		rankingBoxf.style.display = 'none';
+		});
+		btnCerrarRK.addEventListener('click', function () {
+		rankingBox.style.display = 'none';
+		});
+
+
 	});
 
 

@@ -525,12 +525,14 @@
 
 <!-- MENTENCIÖN -->
 <section id="contacto" class="section">
-	<h1>📞 Consulta de Funadas</h1>
+	<h1>📞 Consulta de Estadisticas</h1>
 	<p>Escaneo de registros conflictivos detectados esta semana.</p>
 
 	<!-- Botón de activación -->
 	<div class="funas-trigger-box">
 		<button id="btnConsultarFunas">🧮 Consultar Funas Semanales</button>
+		<button id="btnRankingFunadas" style="margin-left: 12px;">🏆 Ranking de Más Drama</button>
+
 	</div>
 
 	<!-- GIF de animación numérica -->
@@ -545,7 +547,55 @@
 		border-radius: 10px; box-shadow: 0 0 15px #ff1a1a; z-index: 999;">
 
 		<h2>💀 Esta semana se han registrado <strong id="funasCantidad">0</strong> funas a Mills 💀</h2>
+
+<button id="btnCerrarFunas" style="margin-top: 20px; padding: 10px 20px; background-color: #000; color: #fff;
+	border: 1px solid #ff1a1a; border-radius: 6px; cursor: pointer;">
+	🔙 Volver
+</button>
 	</div>
+
+<!-- Modal: Ranking de funas -->
+	<div id="funasResultadoRK" style="display: none; position: fixed; top: 42%; left: 50%; transform: translate(-50%, -50%);
+		background-color: #7b0000; color: #fff; padding: 30px; border: 2px solid #aa0000;
+		border-radius: 10px; box-shadow: 0 0 15px #ff1a1a; z-index: 999; text-align: center;">
+		
+	<h2>💀 Ranking Semanal del drama</h2>
+	<div style="display: flex; justify-content: center; align-items: flex-end; gap: 20px; margin-top: 20px;">
+
+		<!-- Segundo lugar -->
+		<div style="background-color: #1a1a1a; border: 2px solid silver; padding: 15px; border-radius: 8px;
+					height: 130px; width: 110px; box-shadow: 0 0 10px #aaa;">
+			<h3>🥈</h3>
+			<p>Yoli</p>
+			
+		</div>
+
+		<!-- Primer lugar -->
+		<div style="background-color: #1a1a1a; border: 2px solid gold; padding: 15px; border-radius: 8px;
+					height: 160px; width: 110px; box-shadow: 0 0 12px #ffd700;">
+			<h3>🥇</h3>
+			<p>Blanca</p>
+			
+		</div>
+
+		<!-- Tercer lugar -->
+		<div style="background-color: #1a1a1a; border: 2px solid #cd7f32; padding: 15px; border-radius: 8px;
+					height: 100px; width: 110px; box-shadow: 0 0 10px #cd7f32;">
+			<h3>🥉</h3>
+			<p>Gonza</p>
+			
+		</div>
+<button id="btnCerrarFunasRK" style="margin-top: 20px; padding: 10px 20px; background-color: #000; color: #fff;
+	border: 1px solid #ff1a1a; border-radius: 6px; cursor: pointer;">
+	🔙 Volver
+</button>
+
+	</div>
+
+</div>
+
+
+
 
 </section>
 		<!-- Contacto -->
