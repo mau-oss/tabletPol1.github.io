@@ -1,388 +1,547 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>TEST</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+	<meta charset="UTF-8" />
+	<title>TEST</title>
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Barra superior -->
-  <div id="barra-superior">
-    <span id="nombre-usuario" class="nombre-usuario">👤 Usuario</span>
-  </div>
+	<!-- Barra superior -->
+	<div id="barra-superior">
+		<span id="nombre-usuario" class="nombre-usuario">👤 Usuario</span>
+	</div>
 
-  <!-- Panel de Login -->
-  <div class="login-panel" id="loginPanel">
-    <div class="login-box">
-      <h2>🔐 Acceso Central LSPD</h2>
-      <input type="text" placeholder="Usuario" id="user" />
-      <input type="password" placeholder="Contraseña" id="pass" />
-      <button onclick="login()">Ingresar</button>
-    </div>
-  </div>
+	<!-- Panel de Login -->
+	<div class="login-panel" id="loginPanel">
+		<div class="login-box">
+			<h2>🔐 Acceso Central LSPD</h2>
+			<input type="text" placeholder="Usuario" id="user" />
+			<input type="password" placeholder="Contraseña" id="pass" />
+			<button onclick="login()">Ingresar</button>
+		</div>
+	</div>
 
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <h2><i class="fas fa-shield-alt"></i> CENTRAL LSPD</h2>
-    <a href="#" onclick="showSection('inicio')"><i class="fas fa-home"></i> Inicio</a>
-    <a href="#" onclick="showSection('CuerpoP')"><i class="fas fa-file-alt"></i> Jefatura</a>
-    <a href="#" onclick="showSection('RTD')"><i class="fas fa-user-shield"></i> Divisiones</a>
-    <!--<a href="#" onclick="showSection('SRU')"><i class="fas fa-car-crash"></i> SRU</a>-->
-    <a href="#" onclick="showSection('SWAT')"><i class="fas fa-gun"></i> SWAT</a>
-   <!--<a href="#" onclick="showSection('DB')"><i class="fas fa-folder-open"></i> DB</a>
-    //<a href="#" onclick="showSection('contacto')"><i class="fas fa-phone-alt"></i> Contacto</a> -->
-  </div>
+	<!-- Sidebar -->
+	<div class="sidebar" id="sidebar">
+		<h2><i class="fas fa-shield-alt"></i> CENTRAL LSPD</h2>
+		<a href="#" onclick="showSection('inicio')"><i class="fas fa-home"></i> Inicio</a>
+		<a href="#" onclick="showSection('CuerpoP')"><i class="fas fa-file-alt"></i> Jefatura</a>
+		<a href="#" onclick="showSection('RTD')"><i class="fas fa-user-shield"></i> Divisiones</a>
+		<a href="#" onclick="showSection('SWAT')"><i class="fas fa-gun"></i> SWAT</a>
+		<!-- <a href="#" onclick="showSection('DB')"><i class="fas fa-folder-open"></i> DB</a>
+		<a href="#" onclick="showSection('contacto')"><i class="fas fa-phone-alt"></i> Contacto</a>  -->
+		<a href="#" onclick="showSection('REPORTES')"><i class="fas fa-clipboard-list"></i> Reportes</a>
+	</div>
 
-  <!-- Contenido principal -->
-  <div class="main" id="mainContent">
+	<!-- Contenido principal -->
+	<div class="main" id="mainContent">
 
-    <!-- Inicio -->
-    <section id="inicio" class="section active">
-      <h1>Bienvenido a la Central Policial</h1>
-      <p>Panel de control para gestión de recursos, personal y operaciones.</p>
+<!-- Inicio -->
+<section id="inicio" class="section active">
+	<h1>Bienvenido a la Central Policial</h1>
+	<p>Panel de control para gestión de recursos, personal y operaciones.</p>
 
-      <div class="panel-dual">
+	<div class="panel-dual">
+		
+		<!-- Panel de denuncia -->
+		<div class="panel-denuncia">
+			<h2>Entrega información:</h2>
+			<div class="card-denuncia">
+				<h3>¿Cómo hacer una lloradita?</h3>
+				<p>De forma segura y anónima.</p>
+				<button onclick="irADenuncia()">Vía web: Llora seguro</button>
+				<div class="alternativas" onclick="mostrarMensaje()" style="cursor: pointer;">
+					<span>Otras formas de llorar</span>
+					<i class="fas fa-arrow-right"></i>
+				</div>
+			</div>
+		</div>
 
-        <!-- Panel de denuncia -->
-        <div class="panel-denuncia">
-          <h2>Entrega información:</h2>
-          <div class="card-denuncia">
-            <h3>¿Cómo hacer una lloradita?</h3>
-            <p>De forma segura y anónima.</p>
-            <button onclick="irADenuncia()">Vía web: Llora seguro</button>
-            <div class="alternativas" onclick="mostrarMensaje()" style="cursor: pointer;">
-              <span>Otras formas de llorar</span>
-  <i class="fas fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
+		<!-- Panel de trámites -->
+		<div class="panel-tramites">
+			<h2>Trámites</h2>
 
-        <!-- Panel de trámites -->
-        <div class="panel-tramites">
-          <h2>Trámites</h2>
+			<div class="tarjetas-wrapper">
 
-          <!-- Tarjetas -->
+				<!-- Tarjeta: Solicitud Visado -->
+				<div class="tramite-container">
+					<div class="tarjsolicitud">
+						<div class="front">
+							<h3>Solicitud Visado</h3>
+							<button onclick="girarTarjeta(event)">Realizar</button>
+						</div>
+						<div class="back">
+							<input type="text" placeholder="Tu nombre" />
+							<textarea placeholder="Motivo"></textarea>
+							<button onclick="enviarFormulario(event)">Enviar</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tarjeta: Denuncia -->
+				<div class="tramite-container">
+					<div class="tarjsolicitud">
+						<div class="front">
+							<h3>Denuncia</h3>
+							<button onclick="girarTarjeta(event)">Realizar</button>
+						</div>
+						<div class="back">
+							<input type="text" placeholder="Tu nombre" />
+							<textarea placeholder="Motivo"></textarea>
+							<button onclick="enviarFormularioDenuncia(event)">Enviar</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tarjeta: Pedir ID -->
+				<div class="tramite-container">
+					<div class="tarjsolicitud">
+						<div class="front">
+							<h3>Pedir ID</h3>
+							<button onclick="girarTarjeta(event)">Realizar</button>
+						</div>
+						<div class="back">
+							<input type="text" placeholder="Tu nombre" />
+							<textarea placeholder="Motivo"></textarea>
+							<button onclick="enviarFormularioPID(event)">Enviar</button>
+						</div>
+					</div>
+				</div>
+
+			</div> <!-- Fin tarjetas-wrapper -->
+
+		</div> <!-- Fin panel-tramites -->
+
+	</div> <!-- Fin panel-dual -->
+
+</section>
 
 
-<div class="tarjetas-wrapper">
-  <div class="tramite-container">
-    <div class="tarjsolicitud">
-      <div class="front">
-        <h3>Solicitud Visado</h3>
-        <button onclick="girarTarjeta(event)">Realizar</button>
-      </div>
-      <div class="back">
-        <input type="text" placeholder="Tu nombre" />
-        <textarea placeholder="Motivo"></textarea>
-        <button onclick="enviarFormulario(event)">Enviar</button>
-      </div>
-    </div>
-  </div>
+<!-- Jefatura -->
+<section id="CuerpoP" class="section fondo-jefatura">
+	<h1>📄 Jefatura y Plana Mayor</h1>
+	<p>Organigrama estructural de policía.</p>
 
-  <div class="tramite-container">
-    <div class="tarjsolicitud">
-      <div class="front">
-        <h3>Denuncia</h3>
-        <button onclick="girarTarjeta(event)">Realizar</button>
-      </div>
-      <div class="back">
-        <input type="text" placeholder="Tu nombre" />
-        <textarea placeholder="Motivo"></textarea>
-        <button onclick="enviarFormularioDenuncia(event)">Enviar</button>
-      </div>
-    </div>
-  </div>
+	<div class="organigrama">
 
-  <div class="tramite-container">
-    <div class="tarjsolicitud">
-      <div class="front">
-        <h3>Pedir ID</h3>
-        <button onclick="girarTarjeta(event)">Realizar</button>
-      </div>
-      <div class="back">
-        <input type="text" placeholder="Tu nombre" />
-        <textarea placeholder="Motivo"></textarea>
-        <button onclick="enviarFormularioPID(event)">Enviar</button>
-      </div>
-    </div>
-  </div>
+		<!-- Nivel 1 -->
+		<div class="nivel nivel-1">
+			<div class="tarjeta">
+				<div class="cara frente">
+					<h3>Jefe/a de Policía</h3>
+					<p><strong>Revy Smith (452)</strong></p>
+				</div>
+				<div class="cara reverso" onclick="reproducirAudio()">
+					<img src="fotos/Revy.jpg" alt="Foto de Revy Smith" />
+				</div>
+			</div>
+		</div>
 
-    
-</div>
+		<!-- Nivel 2 -->
+		<div class="nivel nivel-2">
+			<div class="tarjeta">
+				<div class="cara frente">
+					<h4>Jefe/a Adjunto/a</h4>
+					<p><strong>Sassa Velar (454)</strong></p>
+				</div>
+				<div class="cara reverso">
+					<img src="fotos/sassa-velar.jpg" alt="Foto de Sassa Velar" />
+				</div>
+			</div>
+			<div class="tarjeta">
+				<div class="cara frente">
+					<h4>Jefe Supervisor</h4>
+					<p><strong>Miguel Martinez (455)</strong></p>
+				</div>
+				<div class="cara reverso">
+					<img src="fotos/miguel-martinez.jpg" alt="Foto de Miguel Martinez" />
+				</div>
+			</div>
+		</div>
 
-    </section>
+		<!-- Nivel 3 -->
+		<div class="nivel nivel-3">
+			<div class="tarjeta">
+				<div class="cara frente">
+					<h4>Comandante</h4>
+					<p><strong>David Gordon (451)</strong></p>
+				</div>
+				<div class="cara reverso">
+					<img src="fotos/david-gordon.jpg" alt="Foto de David Gordon" />
+				</div>
+			</div>
+		</div>
 
-    <!-- Jefatura -->
-    <section id="CuerpoP" class="section fondo-jefatura">
-      <h1>📄 Jefatura y Plana Mayor</h1>
-      <p>Organigrama estructural de policía.</p>
+		<!-- Nivel 4 -->
+		<div class="nivel nivel-4">
+			<div class="tarjeta">
+				<div class="cara frente">
+					<h4>Capitán</h4>
+					<p><strong>Jane Phoenix (458)</strong></p>
+				</div>
+				<div class="cara reverso">
+					<img src="fotos/jane.jpg" alt="Foto de Jane Phoenix" />
+				</div>
+			</div>
+			<div class="tarjeta">
+				<div class="cara frente">
+					<h4>Capitán</h4>
+					<p><strong>Noelia Ariza (459)</strong></p>
+				</div>
+				<div class="cara reverso">
+					<img src="fotos/noelia.jpg" alt="Foto de Noelia Ariza" />
+				</div>
+			</div>
+		</div>
 
-      <div class="organigrama">
-        <!-- Nivel 1 -->
-        <div class="nivel nivel-1">
-          <div class="tarjeta">
-            <div class="cara frente">
-              <h3>Jefe/a de Policía</h3>
-              <p><strong>Revy Smith (452)</strong></p>
-            </div>
-            <div class="cara reverso" onclick="reproducirAudio()">
-              <img src="fotos/Revy.jpg" alt="Foto de Revy Smith" />
-            </div>
-          </div>
-        </div>
+	</div> <!-- Fin .organigrama -->
+</section>
 
-        <!-- Nivel 2 -->
-        <div class="nivel nivel-2">
-          <div class="tarjeta">
-            <div class="cara frente">
-              <h4>Jefe/a Adjunto/a</h4>
-              <p><strong>Sassa Velar (454)</strong></p>
-            </div>
-            <div class="cara reverso">
-              <img src="fotos/sassa-velar.jpg" alt="Foto de Sassa Velar" />
-            </div>
-          </div>
-          <div class="tarjeta">
-            <div class="cara frente">
-              <h4>Jefe Supervisor</h4>
-              <p><strong>Miguel Martinez (455)</strong></p>
-            </div>
-            <div class="cara reverso">
-              <img src="fotos/miguel-martinez.jpg" alt="Foto de Miguel Martinez" />
-            </div>
-          </div>
-        </div>
 
-        <!-- Nivel 3 -->
-        <div class="nivel nivel-3">
-          <div class="tarjeta">
-            <div class="cara frente">
-              <h4>Comandante</h4>
-              <p><strong>David Gordon (451)</strong></p>
-            </div>
-            <div class="cara reverso">
-              <img src="fotos/david-gordon.jpg" alt="Foto de David Gordon" />
-            </div>
-          </div>
-        </div>
+<!-- DIVISIONES -->
+<section id="RTD" class="section Divis">
+	<h1>👮 Recruiting Team Division</h1>
+	<p>Oficiales activos, rangos, asignaciones y turnos.</p>
 
-        <!-- Nivel 4 -->
-        <div class="nivel nivel-4">
-          <div class="tarjeta">
-            <div class="cara frente">
-              <h4>Capitán</h4>
-              <p><strong>Jane Phoenix (458)</strong></p>
-            </div>
-            <div class="cara reverso">
-              <img src="fotos/jane.jpg" alt="Foto de Jane Phoenix" />
-            </div>
-          </div>
-          <div class="tarjeta">
-            <div class="cara frente">
-             <h4>Capitán</h4>
-                <p><strong>Noelia Ariza (459)</strong></p>
-              </div>
-              <div class="cara reverso">
-                <img src="fotos/noelia.jpg" alt="Foto de Noelia Ariza" />
-              </div>
-            </div>
-          </div>
-        </div> <!-- Fin .organigrama -->
-      </section>
+	<!-- Contenedor de divisiones -->
+	<div class="divisiones-policiales">
+		<div class="division">
+			<h3>RTD – Instrucción y Reclutamiento</h3>
+			<p>Instruyen y evalúan a los cadetes en su etapa inicial en la policía.</p>
+			<span>👤 Coordinado por: Sassa Velar</span>
+		</div>
 
-      <!-- RTD -->
-      <section id="RTD" class="section Divis">
-        <h1>👮 Recruiting Team Division</h1>
-        <p>Oficiales activos, rangos, asignaciones y turnos.</p>
-		<!-- Contenedor de divisiones -->
-<div class="divisiones-policiales">
-  <div class="division">
-    <h3>RTD – Instrucción y Reclutamiento</h3>
-    <p>Instruyen y evalúan a los cadetes en su etapa inicial en la policía.</p>
-    <span>👤 Coordinado por: Sassa Velar</span>
-  </div>
+		<div class="division">
+			<h3>ASD – División Aérea</h3>
+			<p>Patrullaje y apoyo aéreo en operaciones policiales.</p>
+			<span>👤 Coordinado por: Jane Phoenix</span>
+		</div>
 
-  <div class="division">
-    <h3>ASD – División Aérea</h3>
-    <p>Patrullaje y apoyo aéreo en operaciones policiales.</p>
-    <span>👤 Coordinado por: Jane Phoenix</span>
-  </div>
+		<div class="division">
+			<h3>K9 – División Canina</h3>
+			<p>Instrucción de perros para detención y detección de narcóticos.</p>
+			<span>👤 Coordinado por: Noelia Ariza</span>
+		</div>
 
-  <div class="division">
-    <h3>K9 – División Canina</h3>
-    <p>Instrucción de perros para detención y detección de narcóticos.</p>
-    <span>👤 Coordinado por: Noelia Ariza</span>
-  </div>
+		<div class="division">
+			<h3>SAHP – HighWay Patrol</h3>
+			<p>Controles de tráfico y gestión de vehículos de alta velocidad.</p>
+			<span>👤 Coordinado por: Willow Reiss</span>
+		</div>
 
-  <div class="division">
-    <h3>SAHP – HighWay Patrol</h3>
-    <p>Controles de tráfico y gestión de vehículos de alta velocidad.</p>
-    <span>👤 Coordinado por: Willow Reiss</span>
-  </div>
+		<div class="division">
+			<h3>SRU – Street Racing Unit</h3>
+			<p>Investigación y seguimiento de carreras ilegales.</p>
+			<span>👤 Coordinado por: Yan Tackelberry</span>
+		</div>
 
-  <div class="division">
-    <h3>SRU – Street Racing Unit</h3>
-    <p>Investigación y seguimiento de carreras ilegales.</p>
-    <span>👤 Coordinado por: 	Yan Tackelberry</span>
-  </div>
+		<div class="division">
+			<h3>RRPP – Relaciones Públicas</h3>
+			<p>Organizan eventos, convenios y comunicación con la población.</p>
+			<span>👤 Coordinado por: Kayser Siegler</span>
+		</div>
 
-  <div class="division">
-    <h3>RRPP – Relaciones Públicas</h3>
-    <p>Organizan eventos, convenios y comunicación con la población.</p>
-	<span>👤 Coordinado por: Kayser Siegler</span>
-  </div>
+		<div class="division">
+			<h3>Reinserción Social</h3>
+			<p>Ayuda a personas con delitos menores a reinsertarse legalmente.</p>
+			<span>👤 Coordinado por: Thiago Rodriguez</span>
+		</div>
 
-  <div class="division">
-    <h3>Reinserción Social</h3>
-    <p>Ayuda a personas con delitos menores a reinsertarse legalmente.</p>
-	<span>👤 Coordinado por: Thiago Rodriguez</span>
-  </div>
+		<div class="division">
+			<h3>IA – Asuntos Internos</h3>
+			<p>Investiga y sanciona malas praxis dentro del cuerpo policial.</p>
+			<span>👤 Coordinado por: Revy Smith</span>
+		</div>
 
-  <div class="division">
-    <h3>IA – Asuntos Internos</h3>
-    <p>Investiga y sanciona malas praxis dentro del cuerpo policial.</p>
-    <span>👤 Coordinado por: Revy Smith</span>
-  </div>
+		<div class="division">
+			<h3>SWAT – Intervención Especial</h3>
+			<p>Negociación, rescate de rehenes y actuación en robos mayores.</p>
+			<span>👤 Coordinado por: Cassandra Bardi</span>
+		</div>
 
-  <div class="division">
-    <h3>SWAT – Intervención Especial</h3>
-    <p>Negociación, rescate de rehenes y actuación en robos mayores.</p>
-	<span>👤 Coordinado por: Cassandra Bardi</span>
-  </div>
+		<div class="division">
+			<h3>DB – Detective Bureau</h3>
+			<p>Investigación de delitos mayores y organizaciones criminales.</p>
+			<span>👤 Coordinado por: Brooklyn Díaz</span>
+		</div>
 
-  <div class="division">
-    <h3>DB – Detective Bureau</h3>
-    <p>Investigación de delitos mayores y organizaciones criminales.</p>
-    <span>👤 Coordinado por: Brooklyn Díaz</span>
-  </div>
-  
-  <div class="division">
-    <h3>DM – Delitos Menores</h3>
-    <p>Delitos Menores.</p>
-    <span>👤 Coordinado por: Agatha West</span>
-  </div>
-</div>
-      </section>
+		<div class="division">
+			<h3>DM – Delitos Menores</h3>
+			<p>Delitos Menores.</p>
+			<span>👤 Coordinado por: Agatha West</span>
+		</div>
+	</div>
+</section>
 
-      <!-- SRU -->
-      <section id="SRU" class="section">
-        <h1>🚓 Street Racing Unit</h1>
-        <H2>EN MANTENCIÓN.</H2>
-		<div class="tarjeta-rtd">
-    <img src="fotos/imagen1.jpg" alt="Agente RTD">
-    <h3>Oficial Ramírez</h3>
-    <p>ID: 0452</p>
-    <span>Unidad de Tránsito</span>
-  </div>
+<!-- SRU -->
+<section id="SRU" class="section">
+	<h1>🚓 Street Racing Unit</h1>
+	<h2>EN MANTENCIÓN.</h2>
 
-  <div class="galeria-coches">
-    <img src="fotos/coches.jpg" alt="Sultan RS">
-    
-    <!-- Agrega más imágenes aquí -->
-  </div>
-      </section>
+	<div class="tarjeta-rtd">
+		<img src="fotos/imagen1.jpg" alt="Agente RTD">
+		<h3>Oficial Ramírez</h3>
+		<p>ID: 0452</p>
+		<span>Unidad de Tránsito</span>
+	</div>
 
-      <!---------- SWAT --------------------------------------------------------------------------->
-		<style>
- 		.swat-layout {    display: flex;    flex-direction: row;    justify-content: space-between;    align-items: flex-start;    		gap: 20px;    margin-top: 20px;  }
-  		.mapa-zona {    flex: 1;    max-width: 55%;  }
-  		.mapa-zona img {    width: 100%;    border-radius: 8px;  }
-  		.tarjetas-zona {    flex: 1;    max-width: 40%;    display: flex;    flex-direction: column;    gap: 20px;  }
-  		.tarjetaswat {    background-color: #8dabff;    padding: 15px;    border-left: 5px solid #2c3e50;    border-radius: 8px;    		box-shadow:0 2px 6px rgba(0,0,0,0.1);  }
-		.tarjetaswat h3 {    margin: 0 0 10px;    color: #2c3e50;  }
-  		.tarjetaswat p {    margin: 0;    color: #333;  }
-  		.tarjetaswat span {    display: block;    margin-top: 10px;    font-weight: bold;    color: #555;  }
-  		@media (max-width: 768px) {    .swat-layout {      flex-direction: column;    }    .mapa-zona, .tarjetas-zona {      max-		width: 100%;    }  }
-/* Hover: efecto metálico y zoom */
-.tarjetaswat:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px var(--zona-color);
-}
+	<div class="galeria-coches">
+		<img src="fotos/coches.jpg" alt="Sultan RS">
+		<!-- Agrega más imágenes aquí -->
+	</div>
+</section>
 
-/* Colores por zona */
-.tarjetaswat:nth-child(1) { --zona-color: #ff7518; }   /* Naranja metálico */
-.tarjetaswat:nth-child(2) { --zona-color: #e6b7c1; }   /* Rosa glam */
-.tarjetaswat:nth-child(3) { --zona-color: #00cc99; }   /* Verde plasma */
-.tarjetaswat:nth-child(4) { --zona-color: #00aae4; }   /* Azul claro */
-.tarjetaswat:nth-child(5) { --zona-color: #3d4df5; }   /* Violeta cobre */
 
-/* Click: expandir tarjeta */
-.tarjetaswat.active {
-  background: var(--zona-color);
-  color: #000;
-  transform: scale(1.1);
-}
+<!---------- SWAT CSS-------------------------------------------------------------->
+<style>
+	.swat-layout {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 20px;
+		margin-top: 20px;
+	}
+
+	.mapa-zona {
+		flex: 1;
+		max-width: 55%;
+	}
+
+	.mapa-zona img {
+		width: 100%;
+		border-radius: 8px;
+	}
+
+	.tarjetas-zona {
+		flex: 1;
+		max-width: 40%;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.tarjetaswat {
+		background-color: #8dabff;
+		padding: 15px;
+		border-left: 5px solid #2c3e50;
+		border-radius: 8px;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.tarjetaswat h3 {
+		margin: 0 0 10px;
+		color: #2c3e50;
+	}
+
+	.tarjetaswat p {
+		margin: 0;
+		color: #333;
+	}
+
+	.tarjetaswat span {
+		display: block;
+		margin-top: 10px;
+		font-weight: bold;
+		color: #555;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.swat-layout {
+			flex-direction: column;
+		}
+
+		.mapa-zona,
+		.tarjetas-zona {
+			max-width: 100%;
+		}
+	}
+
+	/* Hover efecto metálico y zoom */
+	.tarjetaswat:hover {
+		transform: scale(1.05);
+		box-shadow: 0 0 20px var(--zona-color);
+	}
+
+	/* Colores personalizados por zona */
+	.tarjetaswat:nth-child(1) { --zona-color: #ff7518; } /* Naranja metálico */
+	.tarjetaswat:nth-child(2) { --zona-color: #e6b7c1; } /* Rosa glam */
+	.tarjetaswat:nth-child(3) { --zona-color: #00cc99; } /* Verde plasma */
+	.tarjetaswat:nth-child(4) { --zona-color: #00aae4; } /* Azul claro */
+	.tarjetaswat:nth-child(5) { --zona-color: #3d4df5; } /* Violeta cobre */
+
+	/* Click: activar tarjeta */
+	.tarjetaswat.active {
+		background: var(--zona-color);
+		color: #000;
+		transform: scale(1.1);
+	}
 </style>
 
+<!---------- Fin SWAT CSS-------------------------------------------------------------->
+<!---------- SWAT-------------------------------------------------------------->
+		<!-- SWAT -->
 <section id="SWAT" class="section">
-  <h1>🔫 Special Weapons and Tactics</h1>
+	<h1>🔫 Special Weapons and Tactics</h1>
 
-  <div class="swat-layout">
-    <!-- Mapa a la izquierda -->
-    <div class="mapa-zona">
-      <h4>🗺️ Mapa de la Zona</h4>
-      <img src="fotos/mapas.jpg" alt="Mapa de Zona puntos calientes">
-      <p style="font-size:0.9em; color:#666;">Vista geográfica de la zona de instrucción SWAT.</p>
-    </div>
+	<div class="swat-layout">
 
-    <!-- Tarjetas SWAT a la derecha -->
-    <div class="tarjetas-zona">
-      <div class="tarjetaswat">
-        <h3>Zona Naranja - Tiroteos y homicidios</h3>
-        <p>Zona donde se han visualizado y se tiene en informes alta actividad de disparos y problemas entre ciudadanos.</p>
-       </div>
+		<!-- Mapa a la izquierda -->
+		<div class="mapa-zona">
+			<h4>🗺️ Mapa de la Zona</h4>
+			<img src="fotos/mapas.jpg" alt="Mapa de Zona puntos calientes" />
+			<p style="font-size:0.9em; color:#666;">
+				Vista geográfica de la zona de instrucción SWAT.
+			</p>
+		</div>
 
-      <div class="tarjetaswat">
-        <h3>Zona Rosa - Robos y secuestros</h3>
-        <p>Lugares con poca seguridad y control, por lo que se da recurrentemente robos y secuestros.</p>
-        
-      </div>
+		<!-- Tarjetas SWAT a la derecha -->
+		<div class="tarjetas-zona">
 
-	<div class="tarjetaswat">
-        <h3>Zona Verde - Venta estupefacientes</h3>
-        <p>Lugares propios de venta de estupefacientes debido a la gran cantidad de personas.</p>
-        
-        </div>
+			<div class="tarjetaswat">
+				<h3>Zona Naranja - Tiroteos y homicidios</h3>
+				<p>
+					Zona donde se han visualizado y se tiene en informes alta actividad de disparos y problemas entre ciudadanos.
+				</p>
+			</div>
 
-	<div class="tarjetaswat">
-        <h3>Zona Azul - Lugar de lluvia torrencial</h3>
-        <p>Sectores donde se da un extraño efecto climatico con lloros, digo lluvias a distintas horas del día.</p>
-        
-        </div>
+			<div class="tarjetaswat">
+				<h3>Zona Rosa - Robos y secuestros</h3>
+				<p>
+					Lugares con poca seguridad y control, por lo que se da recurrentemente robos y secuestros.
+				</p>
+			</div>
 
-	<div class="tarjetaswat">
-        <h3>Zona Violeta - Mi casa</h3>
-        <p>Puse mi casa para no olvidarme donde queda con el GPS.</p>
-        
-        </div>
+			<div class="tarjetaswat">
+				<h3>Zona Verde - Venta estupefacientes</h3>
+				<p>
+					Lugares propios de venta de estupefacientes debido a la gran cantidad de personas.
+				</p>
+			</div>
+
+			<div class="tarjetaswat">
+				<h3>Zona Azul - Lugar de lluvia torrencial</h3>
+				<p>
+					Sectores donde se da un extraño efecto climático con lloros... digo, lluvias a distintas horas del día.
+				</p>
+			</div>
+
+			<div class="tarjetaswat">
+				<h3>Zona Violeta - Mi casa</h3>
+				<p>
+					Puse mi casa para no olvidarme donde queda con el GPS.
+				</p>
+			</div>
+
+		</div> <!-- Fin tarjetas-zona -->
+
+	</div> <!-- Fin swat-layout -->
+
+</section>
+
+<!---------- FIN SWAT-------------------------------------------------------------->
+
+<!-------------------------------- REPORTES -------------------------------------->
+<section id="REPORTES" class="section">
+	<h1>🚓 Sección de reportes</h1>
+
+	<!-- Botones de Inventario -->
+	<button id="mostrarInventario">📦 Inventario de Tickets</button>
+	<button id="mostrarInventarioD">📦 Inventario de denuncias</button>
+
+	<!-- Modal: Ingreso de Ticket -->
+	<div id="modalReportes" style="display:none; position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%);
+		background-color: #222; color: #fff; padding: 20px; border: 2px solid #444; border-radius: 10px; z-index: 999;">
+		<h2>🔍 Ingresar número de ticket</h2>
+		<input type="text" id="inputReporte" placeholder="Ej. RP-2025-047" />
+		<button onclick="procesarReporte()">Buscar</button>
+	</div>
+
+	<!-- Modal: Ingreso de Denuncia -->
+	<div id="modalDenuncias" style="display:none; position: fixed; top: 42%; left: 50%; transform: translate(-50%, -50%);
+		background-color: #1a1a1a; color: #fff; padding: 20px; border: 2px solid #555; border-radius: 10px; z-index: 999;">
+		<h2>🕵️‍♂️ Ingresar número de denuncia</h2>
+		<input type="text" id="inputDenuncia" placeholder="Ej. DN-2025-112" />
+		<button onclick="procesarDenuncia()">Buscar</button>
+	</div>
+
+	<!-- Estado: Cargando Reporte -->
+	<div id="cargando" style="display: none; margin-top: 20px;">
+		<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTN3aHBlbzJ2NGJlZWFrN3RqMWpnZjc0c3MwZzBmbXc2YWo4eXU1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RHEqKwRZDwFKE/giphy.gif"
+			alt="Lejano Oeste" />
+	</div>
+
+	<!-- Modal: Procesando Reporte -->
+	<div id="modalReporte" style="display: none; position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%);
+		background-color: #222; color: #fff; padding: 20px; border: 2px solid #444; border-radius: 10px; z-index: 999;">
+		<h2>📋 Tu ticket está siendo consultado en la base de datos</h2>
+	</div>
+
+	<!-- Modal: Resultado del Reporte -->
+	<div id="modalFinal" style="display: none; position: fixed; top: 42%; left: 50%; transform: translate(-50%, -50%);
+		background-color: #1a1a1a; color: #fff; padding: 20px; border: 2px solid #555; border-radius: 10px; z-index: 999;">
+		<h2>✅ La solución de tu ticket es:</h2>
+	</div>
+
+	<!-- GIF: Decorativo post-consulta reporte -->
+	<div id="gifOeste" style="display: none; margin-top: 20px;">
+		<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnF6aGZuajI1ejNmcDE3cDVta2FzZGFjOHU0YWJtdWxpN2JvYm8yOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/I7p8K5EY9w9dC/giphy.gif"
+			alt="Lejano Oeste" />
+	</div>
+
+	<!-- Estado: Cargando Denuncia -->
+	<div id="cargando1" style="display: none; margin-top: 20px;">
+		<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJiNmw1dXFsdnA5cmZtbXBudnduOGtyYzkyMWdyZmwwd3BoOXA2bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RHEqKwRZDwFKE/giphy.gif"
+			alt="Lejano Oeste" />
+	</div>
+
+	<!-- Modal: Procesando Denuncia -->
+	<div id="modalReporte1" style="display: none; position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%);
+		background-color: #222; color: #fff; padding: 20px; border: 2px solid #444; border-radius: 10px; z-index: 999;">
+		<h2>📋 Consultando estado de denuncia</h2>
+	</div>
+
+	<!-- Modal: Resultado de Denuncia -->
+	<div id="modalFinal1" style="display: none; position: fixed; top: 42%; left: 50%; transform: translate(-50%, -50%);
+		background-color: #1a1a1a; color: #fff; padding: 20px; border: 2px solid #555; border-radius: 10px; z-index: 999;">
+		<h2>✅ A continuación el estado de tu denuncia</h2>
+	</div>
+
+	<!-- GIF: Decorativo post-consulta denuncia -->
+	<div id="gifdenuncia" style="display: none; margin-top: 20px;">
+		<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGlhMmQ4NmY5dHpxOHhnMWRhdTBqbTlrbDdobXlkMXo3MTM2czBtZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3owvK2iWd7XB8D9GPm/giphy.gif"
+			alt="Lejano Oeste" />
+	</div>
+
+</section>
+		
+<!-------------------------------- FIN REPORTES -------------------------------------->
 
 
-    </div>
-  </div>
- <!---------- SWAT --------------------------------------------------------------------------->
-     
+<!-- MENTENCIÖN -->
+		<section id="DB" class="section">
+			<h1>📁 Detective Bureau</h1>
+			<h2>EN MANTENCIÓN.</h2>
+			<p>Investigaciones en curso, evidencias recolectadas y responsables.</p>
+		</section>
 
-      <!-- DB -->
-      <section id="DB" class="section">
-        <h1>📁 Detective Bureau</h1>
-		 <H2>EN MANTENCIÓN.</H2>
-        <p>Investigaciones en curso, evidencias recolectadas y responsables.</p>
-      </section>
+		<!-- Contacto -->
+		<section id="contacto" class="section">
+			<h1>📞 Contacto</h1>
+			<h2>EN MANTENCIÓN.</h2>
+			<p>Emergencias, soporte técnico y líneas internas.</p>
+		</section>
 
-      <!-- Contacto -->
-      <section id="contacto" class="section">
-        <h1>📞 Contacto</h1>
-		 <H2>EN MANTENCIÓN.</H2>
-        <p>Emergencias, soporte técnico y líneas internas.</p>
-      </section>
+<!-- MENTENCIÖN -->
 
-    </div> <!-- Fin .main -->
+	</div> <!-- Fin .main -->
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
-
-  </body>
+	<!-- Scripts -->
+	<script src="script.js"></script>
+</body>
 </html>

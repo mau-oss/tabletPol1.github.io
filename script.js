@@ -278,3 +278,93 @@ document.querySelectorAll('.tarjetaswat').forEach(card => {
 
   });
 
+//-- NUEVO REPORTES --
+
+document.getElementById('mostrarInventario').addEventListener('click', () => {
+  document.getElementById('modalReportes').style.display = 'block';
+  document.getElementById('modalDenuncias').style.display = 'none';
+});
+
+document.getElementById('mostrarInventarioD').addEventListener('click', () => {
+  document.getElementById('modalDenuncias').style.display = 'block';
+  document.getElementById('modalReportes').style.display = 'none';
+gifOeste.style.display = 'none';
+});
+
+
+function procesarReporte() {
+  const numReporte = document.getElementById('inputReporte').value;
+  const cargando = document.getElementById('cargando');
+  const gifOeste = document.getElementById('gifOeste');
+  const modalReporte = document.getElementById('modalReporte');
+  const modalFinal = document.getElementById('modalFinal');
+
+  modalReportes.style.display = 'none';
+
+  // Paso 1: Mostrar "Cargando"
+  cargando.style.display = 'block';
+  gifOeste.style.display = 'none';
+  modalReporte.style.display = 'none';
+  modalFinal.style.display = 'none';
+
+  // Paso 2: Mostrar mensaje "Tu reporte es:"
+  setTimeout(() => {
+    cargando.style.display = 'none';
+    modalReporte.style.display = 'block';
+
+    // Paso 3: Mostrar mensaje "Tu reporte está listo"
+    setTimeout(() => {
+      modalReporte.style.display = 'none';
+      modalFinal.style.display = 'block';
+
+      // Paso 4: Mostrar gif
+      setTimeout(() => {
+        modalFinal.style.display = 'none';
+        gifOeste.style.display = 'block';
+
+        // Paso 5: limpiar input
+        document.getElementById('inputReporte').value = '';
+
+      }, 4000);
+
+    }, 4000);
+
+  }, 4000);
+}
+function procesarDenuncia() {
+  const numReporte = document.getElementById('inputDenuncia').value;
+  const cargando = document.getElementById('cargando1');
+  const gifdenuncia = document.getElementById('gifdenuncia');
+  const modalReporte = document.getElementById('modalReporte1');
+  const modalFinal = document.getElementById('modalFinal1');
+
+  modalDenuncias.style.display = 'none';
+
+  // Paso 1: Mostrar "Cargando"
+  cargando.style.display = 'block';
+  gifdenuncia.style.display = 'none';
+  modalReporte.style.display = 'none';
+  modalFinal.style.display = 'none';
+
+  // Paso 2: Mostrar mensaje "Tu reporte es:"
+  setTimeout(() => {
+    cargando.style.display = 'none';
+    modalReporte.style.display = 'block';
+
+    // Paso 3: Mostrar mensaje "Tu reporte está listo"
+    setTimeout(() => {
+      modalReporte.style.display = 'none';
+      modalFinal.style.display = 'block';
+
+      // Paso 4: Mostrar gif
+      setTimeout(() => {
+        modalFinal.style.display = 'none';
+        gifdenuncia.style.display = 'block';
+      }, 5000);
+
+    }, 4000);
+
+  }, 4000);
+}
+
+
