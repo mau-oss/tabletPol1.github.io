@@ -12,6 +12,7 @@
 	<!-- Barra superior -->
 	<div id="barra-superior">
 		<span id="nombre-usuario" class="nombre-usuario">👤 Usuario</span>
+
 	</div>
 
 	<!-- Panel de Login -->
@@ -31,9 +32,10 @@
 		<a href="#" onclick="showSection('CuerpoP')"><i class="fas fa-file-alt"></i> Jefatura</a>
 		<a href="#" onclick="showSection('RTD')"><i class="fas fa-user-shield"></i> Divisiones</a>
 		<a href="#" onclick="showSection('SWAT')"><i class="fas fa-gun"></i> SWAT</a>
-		<!-- <a href="#" onclick="showSection('funometro')"><i class="fas fa-folder-open"></i> Estadisticas</a>-->
 		 <a href="#" onclick="showSection('contacto')"><i class="fas fa-phone-alt"></i> Estadisticas</a>
 		<a href="#" onclick="showSection('REPORTES')"><i class="fas fa-clipboard-list"></i> Reportes</a>
+		<a href="#" onclick="showSection('Perfil')"><i class="fas fa-folder-open"></i> Mi Perfil</a>
+
 	</div>
 
 	<!-- Contenido principal -->
@@ -393,7 +395,12 @@
 
 		<!-- Mapa a la izquierda -->
 		<div class="mapa-zona">
-			<h4>🗺️ Mapa de la Zona</h4>
+
+<!-- Botón que abre una nueva pestaña con otra web HTML -->
+<button class="botonTactico" onclick="window.open('mapaintervencion.html', '_blank')">⚡ Activar modo táctico</button>
+
+
+			<h4>🗺️ Ejemplo modo táctico</h4>
 			<img src="fotos/mapas.jpg" alt="Mapa de Zona puntos calientes" />
 			<p style="font-size:0.9em; color:#666;">
 				Vista geográfica de la zona de instrucción SWAT.
@@ -465,7 +472,7 @@
 	<!-- Modal: Ingreso de Denuncia -->
 	<div id="modalDenuncias" style="display:none; position: fixed; top: 42%; left: 50%; transform: translate(-50%, -50%);
 		background-color: #1a1a1a; color: #fff; padding: 20px; border: 2px solid #555; border-radius: 10px; z-index: 999;">
-		<h2>🕵️‍♂️ Ingresar número de reclamo</h2>
+		<h2>🕵️‍♂️ Ingresar número de denuncia</h2>
 		<input type="text" id="inputDenuncia" placeholder="Ej. DN-2025-112" />
 		<button onclick="procesarDenuncia()">Buscar</button>
 	</div>
@@ -503,13 +510,13 @@
 	<!-- Modal: Procesando Denuncia -->
 	<div id="modalReporte1" style="display: none; position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%);
 		background-color: #222; color: #fff; padding: 20px; border: 2px solid #444; border-radius: 10px; z-index: 999;">
-		<h2>📋 Consultando estado de reclamo</h2>
+		<h2>📋 Consultando estado de denuncia</h2>
 	</div>
 
 	<!-- Modal: Resultado de Denuncia -->
 	<div id="modalFinal1" style="display: none; position: fixed; top: 42%; left: 50%; transform: translate(-50%, -50%);
 		background-color: #1a1a1a; color: #fff; padding: 20px; border: 2px solid #555; border-radius: 10px; z-index: 999;">
-		<h2>✅ A continuación el estado de tu reclamo</h2>
+		<h2>✅ A continuación el estado de tu denuncia</h2>
 	</div>
 
 	<!-- GIF: Decorativo post-consulta denuncia -->
@@ -546,7 +553,7 @@
 		background-color: #7b0000; color: #fff; padding: 20px; border: 2px solid #aa0000;
 		border-radius: 10px; box-shadow: 0 0 15px #ff1a1a; z-index: 999;">
 
-		<h2>💀 Esta semana se han registrado <strong id="funasCantidad">0</strong> funas 💀</h2>
+		<h2>💀 Esta semana se han registrado <strong id="funasCantidad">0</strong> funas a Mills 💀</h2>
 
 <button id="btnCerrarFunas" style="margin-top: 20px; padding: 10px 20px; background-color: #000; color: #fff;
 	border: 1px solid #ff1a1a; border-radius: 6px; cursor: pointer;">
@@ -594,16 +601,40 @@
 
 </div>
 
+</section>
+<!-- Perfil -->
 
+		<section id="Perfil" class="section perfil-seccion">
+	<h1>🧑‍💼 Perfil del Usuario</h1>
 
+	<div class="perfil-card">
+		<img id="avatarUsuario" src="fotos/avatar-default.png" alt="Avatar del usuario" />
+		
+		<div class="info-principal">
+			<h2 id="nombrePerfil">Nombre: [Desconocido]</h2>
+			<p id="rolPerfil">Rol: [Sin rol]</p>
+			<p id="itemActivo">Ítem asignado: [Ninguno]</p>
+			<p id="fechaIngreso">Fecha de ingreso: 03/08/2025</p>
+			<p id="nivelDrama">Nivel de drama acumulado: <span id="dramaValor">--</span></p>
+		</div>
+	</div>
+
+	<div class="acciones-perfil">
+		<button onclick="mostrarInsignias()">🎖️ Ver Insignias</button>
+		<button onclick="activarAnimacion()">⚡ Activar Energía</button>
+	</div>
+
+	<div id="insigniasBox" class="insignias-box" style="display: none;">
+		<h3>🏅 Insignias desbloqueadas</h3>
+		<ul>
+			<li>🎙️ Testigo Experto</li>
+			<li>🎬 Protagonista de Funa</li>
+			<li>👁️ Observador en patrulla</li>
+		</ul>
+	</div>
 
 </section>
-		<!-- Contacto -->
-		<section id="acontacto" class="section">
-			<h1>📞 Contacto</h1>
-			<h2>EN MANTENCIÓN.</h2>
-			<p>Emergencias, soporte técnico y líneas internas.</p>
-		</section>
+
 
 <!-- MENTENCIÖN -->
 
@@ -613,5 +644,3 @@
 	<script src="script.js"></script>
 </body>
 </html>
-
-

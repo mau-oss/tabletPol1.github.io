@@ -1,15 +1,17 @@
 const usuarios = [
-  { username: 'admin', password: '12345', nombre: 'Administrador' },
-  { username: 'yoli', password: '1234', nombre: 'Yoli 007 - NPC01' },
-  { username: 'blanca', password: '1234', nombre: 'Blanca Padawan - NPC05' },
-  { username: 'gonza', password: '1234', nombre: 'Gonzalo Antonio - NPC04' },
-  { username: 'tarqui', password: '1234', nombre: 'Tarquino727 - VuelveMod' },
-  { username: 'mills', password: '1234', nombre: 'La Putisima Jefa' },
-  { username: 'milagros', password: '1234', nombre: 'La Putisima Jefa' },
-  { username: 'azen', password: '1234', nombre: 'azen a secas' },
-  { username: 'padrino', password: '1234', nombre: 'Padrino - Laburando' },
-  // Agrega más usuarios aquí 👇
+   { username: 'admin', password: '12345', nombre: 'Administrador', item: '📱 Radio táctica de comando' },
+  { username: 'yoli', password: '1234', nombre: 'Yoli 007 - NPC01', item: '🕶️ Gafas de infiltración nivel 3' },
+  { username: 'blanca', password: '1234', nombre: 'Blanca Padawan - NPC05', item: '📔 Libreta para llorar discretamente' },
+  { username: 'gonza', password: '1234', nombre: 'Gonzalo Antonio - NPC04', item: '🎩 Sombrero conspirativo anti jefas' },
+  { username: 'tarqui', password: '1234', nombre: 'Tarquino727 - VuelveMod', item: '🛠️ Toolbox de regreso inesperado' },
+  { username: 'mills', password: '1234', nombre: 'La Putisima Jefa', item: '💼 Maletín del poder absoluto con glitter' },
+  { username: 'milagros', password: '1234', nombre: 'La Putisima Jefa', item: '💼 Maletín duplicado, porque el poder se replica' },
+  { username: 'azen', password: '1234', nombre: 'azen a secas', item: '🌪️ El aura misteriosa en frasco reciclado' },
+  { username: 'padrino', password: '1234', nombre: 'Padrino - Laburando', item: '🥃 Botella de autoridad emocional' }
+  // Puedes seguir agregando más usuarios con sus ítems temáticos aquí 👇
+// Agrega más usuarios aquí 👇
 ];
+
 
 function login() {
   const userInput = document.getElementById('user').value;
@@ -21,6 +23,8 @@ function login() {
     document.getElementById('loginPanel').style.display = 'none';
     document.getElementById('sidebar').style.display = 'block';
     document.getElementById('mainContent').style.display = 'block';
+document.getElementById('item-usuario').textContent = `🎁 Ítem personal: ${usuario.item}`;
+
 
     // Mostrar nombre del usuario arriba a la izquierda
     document.getElementById('nombre-usuario').textContent = `👤 ${usuario.nombre}`;
@@ -424,5 +428,62 @@ function procesarDenuncia() {
 
 	});
 
+function mostrarInsignias() {
+	const box = document.getElementById('insigniasBox');
+	box.style.display = box.style.display === 'none' ? 'block' : 'none';
+}
 
+function activarAnimacion() {
+	const card = document.querySelector('.perfil-card');
+	card.style.boxShadow = '0 0 30px red';
+	card.style.transform = 'scale(1.08)';
+	setTimeout(() => {
+		card.style.boxShadow = '0 0 15px #3949ab';
+		card.style.transform = 'scale(1.0)';
+	}, 1500);
+
+	const audio = new Audio('audios/entrada-épica.mp3'); // Cambia según tu carpeta
+	audio.volume = 0.3;
+	audio.play();
+}
+
+// Llenado dinámico del perfil (ejemplo con localStorage)
+document.addEventListener('DOMContentLoaded', () => {
+	const nombre = localStorage.getItem('nombreUsuario') || '[Desconocido]';
+	const rol = localStorage.getItem('rolUsuario') || '[Sin rol]';
+	const item = localStorage.getItem('itemUsuario') || '[Ninguno]';
+	const drama = localStorage.getItem('dramaNivel') || '--';
+	const avatar = localStorage.getItem('avatarURL') || 'fotos/avatar-default.png';
+
+	document.getElementById('nombrePerfil').textContent = `Nombre: ${nombre}`;
+	document.getElementById('rolPerfil').textContent = `Rol: ${rol}`;
+	document.getElementById('itemActivo').textContent = `Ítem asignado: ${item}`;
+	document.getElementById('dramaValor').textContent = drama;
+	document.getElementById('avatarUsuario').src = avatar;
+});
+
+
+const mapImg = document.getElementById('map-img');
+const mapContainer = document.getElementById('map-container');
+
+mapImg.addEventListener('click', function(e) {
+  const rect = mapImg.getBoundingClientRect();
+  const x = e.pageX - rect.left - window.scrollX;
+  const y = e.pageY - rect.top - window.scrollY;
+
+  const marker = document.createElement('div');
+  marker.classList.add('marker');
+  marker.style.left = `${x}px`;
+  marker.style.top = `${y}px`;
+
+  mapContainer.appendChild(marker);
+});
+
+function abrirWeb3D() {
+  document.getElementById('web3D').style.display = 'block';
+}
+
+function cerrarWeb3D() {
+  document.getElementById('web3D').style.display = 'none';
+}
 

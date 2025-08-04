@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zonificación Cyberpunk</title>
+  <style>
+    html, body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0a0a0a url('assets/fondopoli.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      text-align: center;
+      padding: 15px;
+      font-size: 22px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+      border-bottom: 1px solid #00ffff88;
+    }
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 230px 1fr 250px;
+      gap: 15px;
+      padding: 10px;
+      align-items: start;
+    }
+    aside {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .color-button {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      box-shadow: 0 0 6px;
+      cursor: pointer;
+    }
+    input, textarea {
+      background-color: #141414;
+      color: #00ffff;
+      border: 1px solid #00ffff55;
+      padding: 8px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    textarea { resize: vertical; }
+    button {
+      background-color: #111;
+      border: 1px solid #00ffff77;
+      color: #00ffff;
+      padding: 6px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      box-shadow: 0 0 6px #00ffff33;
+      transition: box-shadow 0.2s ease;
+    }
+    button:hover {
+      box-shadow: 0 0 12px #00ffff;
+    }
+    #marker-list > div {
+      background-color: #1a1a1a;
+      border-left: 4px solid;
+      padding: 8px;
+      margin-top: 6px;
+      border-radius: 6px;
+      box-shadow: 0 0 8px #ff004c55;
+      font-size: 14px;
+    }
+    #map-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 110vh;
+    }
+    #map-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    #map-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .marker {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 8px;
+      animation: pulse 1.2s infinite;
+    }
+    .label {
+      position: absolute;
+      padding: 2px 6px;
+      font-size: 12px;
+      background-color: #111;
+      color: #00ffff;
+      border-radius: 4px;
+      transform: translate(-50%, -140%);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>Perfilamiento - Activación de Zonas</header>
+  <main>
+    <aside id="left-panel">
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;">
+        <div class="color-button" style="background-color:#ff004c" data-color="#ff004c"></div>
+        <div class="color-button" style="background-color:#00ffcc" data-color="#00ffcc"></div>
+        <div class="color-button" style="background-color:#ffff00" data-color="#ffff00"></div>
+        <div class="color-button" style="background-color:#00ff00" data-color="#00ff00"></div>
+        <div class="color-button" style="background-color:#ff8800" data-color="#ff8800"></div>
+        <div class="color-button" style="background-color:#0088ff" data-color="#0088ff"></div>
+        <div class="color-button" style="background-color:#ff00ff" data-color="#ff00ff"></div>
+        <div class="color-button" style="background-color:#888888" data-color="#888888"></div>
+        <div class="color-button" style="background-color:#00ffff" data-color="#00ffff"></div>
+      </div>
+      <input type="text" id="title" placeholder="🔖 Título del marcador" />
+      <textarea id="desc" rows="4" placeholder="🛰️ Descripción táctica..."></textarea>
+      <button id="save-marker">Guardar marcador</button>
+      <button id="clear-btn">🧼 Limpiar marcadores</button>
+    </aside>
+
+    <div id="map-container">
+      <div id="map-wrapper">
+        <img src="fotos/lsantos.jpg" id="map-img" alt="Mapa" />
+      </div>
+    </div>
+
+    <aside id="right-panel">
+      <div id="marker-list"></div>
+    </aside>
+  </main>
+
+  <script>
+    const mapWrapper = document.getElementById('map-wrapper');
+    const mapImg = document.getElementById('map-img');
+    const titleBox = document.getElementById('title');
+    const descBox = document.getElementById('desc');
+    const colorButtons = document.querySelectorAll('.color-button');
+    const saveBtn = document.getElementById('save-marker');
+    const clearBtn = document.getElementById('clear-btn');
+    const markerList = document.getElementById('marker-list');
+
+    let selectedColor = '#ff004c';
+    let markerCount = 0;
+
+    // Solo cambia el color activo, no afecta marcadores existentes
+    colorButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedColor = btn.getAttribute('data-color');
+      });
+    });
+
+    mapWrapper.addEventListener('click', function (e) {
+      if (e.target.id === 'map-img') {
+        const title = titleBox.value.trim();
+        const description = descBox.value.trim();
+
+        if (title.length < 3) {
+          alert('El título debe tener al menos 3 caracteres.');
+          return;
+        }
+
+        const rect = mapWrapper.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const marker = document.createElement('div');
+        marker.className = 'marker';
+        marker.style.left = `${x}px`;
+        marker.style.top = `${y}px`;
+        marker.style.backgroundColor = selectedColor;
+        marker.style.boxShadow = `0 0 8px ${selectedColor}`;
+        marker.dataset.title = title;
+        marker.dataset.description = description;
+
+        const label = document.createElement('div');
+        label.className = 'label';
+        label.textContent = title;
+        marker.appendChild(label);
+
+        marker.addEventListener('click', function(ev) {
+          ev.stopPropagation();
+          alert(`🔖 ${marker.dataset.title}\n🛰️ ${marker.dataset.description || 'Sin descripción'}`);
+        });
+
+        marker.addEventListener('dblclick', function(ev) {
+          ev.stopPropagation();
+          const nuevoTitulo = prompt("Nuevo título:", marker.dataset.title);
+          const nuevaDesc = prompt("Nueva descripción:", marker.dataset.description);
+          if (nuevoTitulo && nuevoTitulo.length >= 3) {
+            marker.dataset.title = nuevoTitulo;
+            label.textContent = nuevoTitulo;
+          }
+          if (nuevaDesc !== null) {
+            marker.dataset.description = nuevaDesc;
+          }
+        });
+
+        marker.addEventListener('contextmenu', function(ev) {
+          ev.preventDefault();
+          marker.remove();
+        });
+
+        mapWrapper.appendChild(marker);
+
+        const entry = document.createElement('div');
+        entry.style.borderLeftColor = selectedColor;
+       entry.innerHTML = `🔖 <strong>${title}</strong><br>🛰️ ${description || 'Sin descripción'}`;
+        markerList.appendChild(entry);
+
+        // Limpia los campos
+        titleBox.value = '';
+        descBox.value = '';
+      }
+    });
+
+    // Botón para eliminar todos los marcadores con confirmación
+    clearBtn.addEventListener('click', () => {
+      if (confirm('¿Seguro que quieres eliminar todos los marcadores?')) {
+        document.querySelectorAll('.marker').forEach(m => m.remove());
+        markerList.innerHTML = '';
+      }
+    });
+  </script>
+</body>
+</html>
+
