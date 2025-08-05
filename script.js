@@ -56,12 +56,34 @@ const usuarios = [
 	avatarusuario: 'fotos/azen1.png',
 	insignia: ''
 },
+{ 	username: 'padrino', 
+	password: '1234',
+	nombre: 'Padrino61 - Laburando',
+	Rol: 'Moderadora en Laburo y jugando',
+	drama: '40% Drama',
+	avatarusuario: 'fotos/padrino.png',
+	insignia: ''
+},
+{ 	username: 'tarqui', 
+	password: '1234',
+	nombre: 'Tarquino727 - VuelveMod',
+	Rol: 'VIP Sin Mod por vacaciones',
+	drama: '70% Chisme',
+	avatarusuario: 'fotos/tarqui.png',
+	insignia: ''
+},
+{ 	username: 'malayo', 
+	password: '1234',
+	nombre: 'Mr_Malayo',
+	Rol: 'VIP en ascenso',
+	drama: '40% Chisme',
+	avatarusuario: 'fotos/malayo.png',
+	insignia: ''
+}
 
 
 
-  { username: 'tarqui', password: '1234', nombre: 'Tarquino727 - VuelveMod', item: '🛠️ Toolbox de regreso inesperado' },
-  { username: 'padrino', password: '1234', nombre: 'Padrino - Laburando', item: '🥃 Botella de autoridad emocional' }
-  // Puedes seguir agregando más usuarios con sus ítems temáticos aquí 👇
+   // Puedes seguir agregando más usuarios con sus ítems temáticos aquí 👇
 // Agrega más usuarios aquí 👇
 ];
 
