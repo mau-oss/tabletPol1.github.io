@@ -30,11 +30,11 @@
 		<h2><i class="fas fa-shield-alt"></i> CENTRAL LSPD</h2>
 		<a href="#" onclick="showSection('inicio')"><i class="fas fa-home"></i> Inicio</a>
 		<a href="#" onclick="showSection('CuerpoP')"><i class="fas fa-file-alt"></i> Jefatura</a>
-		<a href="#" onclick="showSection('RTD')"><i class="fas fa-user-shield"></i> Divisiones</a>
+		<a href="#" onclick="showSection('RTD')"><i class="fas fa-folder-open"></i> Divisiones</a>
 		<a href="#" onclick="showSection('SWAT')"><i class="fas fa-gun"></i> SWAT</a>
 		 <a href="#" onclick="showSection('contacto')"><i class="fas fa-phone-alt"></i> Estadisticas</a>
 		<a href="#" onclick="showSection('REPORTES')"><i class="fas fa-clipboard-list"></i> Reportes</a>
-		<a href="#" onclick="showSection('Perfil')"><i class="fas fa-folder-open"></i> Mi Perfil</a>
+		<a href="#" onclick="showSection('Perfil')"><i class="fas fa-user"></i> Mi Perfil</a>
 
 	</div>
 
@@ -603,37 +603,48 @@
 
 </section>
 <!-- Perfil -->
+<section id="Perfil" class="section perfil-seccion">
+    <h1>🧑‍💼 Perfil del Usuario</h1>
 
-		<section id="Perfil" class="section perfil-seccion">
-	<h1>🧑‍💼 Perfil del Usuario</h1>
+    <div class="perfil-card">
+    
+      
+      <div class="info-principal">
+        <h2 id="nombrePerfil">Nombre: [Desconocido]</h2>
+        <p id="rolPerfil">Rol: [Sin rol]</p>
+        <p id="nivelDrama">Nivel de drama acumulado: <span id="dramaValor">--</span></p>
+      </div>
+    </div>
 
-	<div class="perfil-card">
-		<img id="avatarUsuario" src="fotos/avatar-default.png" alt="Avatar del usuario" />
-		
-		<div class="info-principal">
-			<h2 id="nombrePerfil">Nombre: [Desconocido]</h2>
-			<p id="rolPerfil">Rol: [Sin rol]</p>
-			<p id="itemActivo">Ítem asignado: [Ninguno]</p>
-			<p id="fechaIngreso">Fecha de ingreso: 03/08/2025</p>
-			<p id="nivelDrama">Nivel de drama acumulado: <span id="dramaValor">--</span></p>
-		</div>
-	</div>
+<img id="imagenFlotante" src="fotos/avatar-pokemon.png" alt="Invocación épica" style="
+  position: fixed;
+  top: 50%;
+  left: 70%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  display: none;
+  animation: rotar 1s linear infinite;
+"/>
 
-	<div class="acciones-perfil">
-		<button onclick="mostrarInsignias()">🎖️ Ver Insignias</button>
-		<button onclick="activarAnimacion()">⚡ Activar Energía</button>
-	</div>
 
-	<div id="insigniasBox" class="insignias-box" style="display: none;">
-		<h3>🏅 Insignias desbloqueadas</h3>
-		<ul>
-			<li>🎙️ Testigo Experto</li>
-			<li>🎬 Protagonista de Funa</li>
-			<li>👁️ Observador en patrulla</li>
-		</ul>
-	</div>
+    <div class="acciones-perfil">
+      <button onclick="mostrarInsignias()">🎖️ Ver Insignias</button>
+      <button onclick="activarAnimacion()">⚡ Mostrar Perfil</button>
+    </div>
 
-</section>
+    <div id="insigniasBox" class="insignias-box" style="display: none;">
+      <h3>🏅 Insignias desbloqueadas</h3>
+      <ul>
+        <li>🎙️ Testigo Experto de funas</li>
+        <li>👁️ Chismólogo/a licenciado </li>
+        <li id="insigniasEsp">🎬 Protagonista de Funa </li>
+      </ul>
+    </div>
+  </section>
+
 
 
 <!-- MENTENCIÖN -->

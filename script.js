@@ -1,12 +1,65 @@
 const usuarios = [
-   { username: 'admin', password: '12345', nombre: 'Administrador', item: '📱 Radio táctica de comando' },
-  { username: 'yoli', password: '1234', nombre: 'Yoli 007 - NPC01', item: '🕶️ Gafas de infiltración nivel 3' },
-  { username: 'blanca', password: '1234', nombre: 'Blanca Padawan - NPC05', item: '📔 Libreta para llorar discretamente' },
-  { username: 'gonza', password: '1234', nombre: 'Gonzalo Antonio - NPC04', item: '🎩 Sombrero conspirativo anti jefas' },
+   { 	username: 'admin', 
+	password: '12345',
+	nombre: 'Administrador',
+	Rol: 'SolSerio',
+	drama: '99%',
+	avatarusuario: 'fotos/Revy.jpg',
+	insignia: 'fotos/Revy.jpg'
+},
+{ 	username: 'yoli', 
+	password: '1234',
+	nombre: 'Yoli 007 - NPC01',
+	Rol: 'Moderadora Lider',
+	drama: '70% Drama',
+	avatarusuario: 'fotos/yoli1.png',
+	insignia: ''
+},
+{ 	username: 'blanca', 
+	password: '1234',
+	nombre: 'Blanca Padawan - NPC05',
+	Rol: 'Moderadora Padawan',
+	drama: '1000% Drama',
+	avatarusuario: 'fotos/blanca.png',
+	insignia: ''
+},
+{ 	username: 'gonza', 
+	password: '1234',
+	nombre: 'Gonzalo Antonio - NPC04',
+	Rol: 'Moderador Deportista',
+	drama: '80% Ira',
+	avatarusuario: 'fotos/gonza.png',
+	insignia: ''
+},
+
+{ 	username: 'mills', 
+	password: '1234',
+	nombre: 'Milagros - La Putisima Jefa',
+	Rol: 'La Putisima Jefa',
+	drama: '75% Funada',
+	avatarusuario: 'fotos/mills1.png',
+	insignia: ''
+},
+{ 	username: 'mauri', 
+	password: '1234',
+	nombre: 'Mauritxio - NPC06',
+	Rol: 'Moderador Rookie',
+	drama: '100% Metemierda',
+	avatarusuario: 'fotos/mauri1.png',
+        insignia: ''
+},
+{ 	username: 'azen', 
+	password: '1234',
+	nombre: 'Azengarth - Azen a secas',
+	Rol: 'Bienvenida Invasora',
+	drama: '75% Rageo',
+	avatarusuario: 'fotos/azen1.png',
+	insignia: ''
+},
+
+
+
   { username: 'tarqui', password: '1234', nombre: 'Tarquino727 - VuelveMod', item: '🛠️ Toolbox de regreso inesperado' },
-  { username: 'mills', password: '1234', nombre: 'La Putisima Jefa', item: '💼 Maletín del poder absoluto con glitter' },
-  { username: 'milagros', password: '1234', nombre: 'La Putisima Jefa', item: '💼 Maletín duplicado, porque el poder se replica' },
-  { username: 'azen', password: '1234', nombre: 'azen a secas', item: '🌪️ El aura misteriosa en frasco reciclado' },
   { username: 'padrino', password: '1234', nombre: 'Padrino - Laburando', item: '🥃 Botella de autoridad emocional' }
   // Puedes seguir agregando más usuarios con sus ítems temáticos aquí 👇
 // Agrega más usuarios aquí 👇
@@ -23,11 +76,15 @@ function login() {
     document.getElementById('loginPanel').style.display = 'none';
     document.getElementById('sidebar').style.display = 'block';
     document.getElementById('mainContent').style.display = 'block';
-document.getElementById('item-usuario').textContent = `🎁 Ítem personal: ${usuario.item}`;
-
 
     // Mostrar nombre del usuario arriba a la izquierda
     document.getElementById('nombre-usuario').textContent = `👤 ${usuario.nombre}`;
+    document.getElementById('nombrePerfil').textContent = `Nombre: 👤 ${usuario.nombre}`;
+    document.getElementById('rolPerfil').textContent = `ROL: 👤 ${usuario.Rol}`;
+    document.getElementById('nivelDrama').textContent = `Composición: 👤 ${usuario.drama}`;
+    document.getElementById('imagenFlotante').src =  `${usuario.avatarusuario}`;
+    document.getElementById('insigniaEsp').textContent = `👤 ${usuario.insignia}`;
+
   } else {
     alert('Credenciales incorrectas 🚨');
   }
@@ -189,7 +246,7 @@ function enviarFormularioPID(event) {
 
   // Envío exitoso
 const audio = new Audio('audios/titanic.mp3');
-  audio.volume = 0.1;// Reemplaza con la ruta correcta
+  audio.volume = 0.3;// Reemplaza con la ruta correcta
   audio.play();
   alert(`Quieres Pedir ID? , pues ${nombre} puedes agarrar el pedir id y guardarlo donde mas te guste`);
 
@@ -271,7 +328,7 @@ function enviarFormularioDenuncia(event) {
 
 function reproducirAudio() {
   const audio = new Audio('audios/jefa.mp3');
-  audio.volume = 0.1;// Reemplaza con la ruta correcta
+  audio.volume = 0.3;// Reemplaza con la ruta correcta
   audio.play();// Asegúrate de que la ruta sea correcta
 }
 
@@ -434,34 +491,16 @@ function mostrarInsignias() {
 }
 
 function activarAnimacion() {
-	const card = document.querySelector('.perfil-card');
-	card.style.boxShadow = '0 0 30px red';
-	card.style.transform = 'scale(1.08)';
-	setTimeout(() => {
-		card.style.boxShadow = '0 0 15px #3949ab';
-		card.style.transform = 'scale(1.0)';
-	}, 1500);
+ 
 
-	const audio = new Audio('audios/entrada-épica.mp3'); // Cambia según tu carpeta
-	audio.volume = 0.3;
-	audio.play();
+  const imagen = document.getElementById('imagenFlotante');
+  imagen.style.display = 'block';
+
+  // Ocultarla después de unos segundos
+  setTimeout(() => {
+    imagen.style.display = 'none';
+  }, 10000);
 }
-
-// Llenado dinámico del perfil (ejemplo con localStorage)
-document.addEventListener('DOMContentLoaded', () => {
-	const nombre = localStorage.getItem('nombreUsuario') || '[Desconocido]';
-	const rol = localStorage.getItem('rolUsuario') || '[Sin rol]';
-	const item = localStorage.getItem('itemUsuario') || '[Ninguno]';
-	const drama = localStorage.getItem('dramaNivel') || '--';
-	const avatar = localStorage.getItem('avatarURL') || 'fotos/avatar-default.png';
-
-	document.getElementById('nombrePerfil').textContent = `Nombre: ${nombre}`;
-	document.getElementById('rolPerfil').textContent = `Rol: ${rol}`;
-	document.getElementById('itemActivo').textContent = `Ítem asignado: ${item}`;
-	document.getElementById('dramaValor').textContent = drama;
-	document.getElementById('avatarUsuario').src = avatar;
-});
-
 
 const mapImg = document.getElementById('map-img');
 const mapContainer = document.getElementById('map-container');
